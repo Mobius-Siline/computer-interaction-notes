@@ -1575,6 +1575,10 @@
     [
       "Butte College教材：do-while循环",
       "https://eng.libretexts.org/Courses/Butte_College/Intro_to_Programming_with_Programming_Fundamentals_and_Python_for_Everyone/27:_Additional_Fundamentals_of_Programming/27.06:_Loops/27.6.01:_Do_While_Loop"
+    ],
+    [
+      "作者教材课程站：条件与循环",
+      "https://introcs.cs.princeton.edu/java/13flow/"
     ]
   ],
   "y2024q69": [
@@ -2123,12 +2127,32 @@
     [
       "Princeton：前缀和预处理与常数时间区间查询",
       "https://competitive-programming.cs.princeton.edu/ps_s24"
+    ],
+    [
+      "作者教材课程站：算法成本分析",
+      "https://introcs.cs.princeton.edu/java/41analysis/"
+    ],
+    [
+      "大学算法讲义：时间与空间",
+      "https://www.cs.cornell.edu/courses/cs312/2002fa/lectures/lec13.htm"
     ]
   ],
   "y2026q6": [
     [
       "NIST：辗转相除法的余数递推",
       "https://xlinux.nist.gov/dads/HTML/euclidalgo.html"
+    ],
+    [
+      "MIT OCW讲义：算法特征和评价",
+      "https://ocw.mit.edu/courses/1-204-computer-algorithms-in-systems-engineering-spring-2010/8ee75d49f1cb9a947f1d3f15a2aa9e00_MIT1_204S10_lec05.pdf"
+    ],
+    [
+      "NIST DADS：算法",
+      "https://xlinux.nist.gov/dads/HTML/algorithm.html"
+    ],
+    [
+      "作者原论文，ACM 2006：计算与资源约束",
+      "https://www.cs.cmu.edu/~wing/publications/Wing06.pdf"
     ]
   ],
   "y2022q43": [
@@ -2151,6 +2175,18 @@
     [
       "Oracle：多态与不同类型的方法实现",
       "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html"
+    ],
+    [
+      "Oracle：对象状态与行为",
+      "https://docs.oracle.com/javase/tutorial/java/concepts/object.html"
+    ],
+    [
+      "Oracle：类与实例",
+      "https://docs.oracle.com/javase/tutorial/java/concepts/class.html"
+    ],
+    [
+      "Oracle：实例成员和类成员",
+      "https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html"
     ]
   ],
   "y2020q8": [
@@ -2541,6 +2577,14 @@
     [
       "Wing：Computational Thinking",
       "https://www.cs.cmu.edu/~wing/publications/Wing06.pdf"
+    ],
+    [
+      "作者原文，CMU：计算思维的表示与执行",
+      "https://www.cs.cmu.edu/~CompThink/resources/TheLinkWing.pdf"
+    ],
+    [
+      "CMU大学课程：问题求解步骤",
+      "https://www.cs.cmu.edu/~rdriley/112/notes/notes-algorithmic-thinking.html"
     ]
   ],
   "y2025q23": [
@@ -3409,6 +3453,62 @@
     [
       "PostgreSQL 18 Lexical Structure",
       "https://www.postgresql.org/docs/current/sql-syntax-lexical.html"
+    ]
+  ],
+  "y2026q42": [
+    [
+      "大学教学资料：伪代码",
+      "https://www.cs.cmu.edu/~cburch/survey/recurse/pseudocode.html"
+    ],
+    [
+      "Open University课程：程序流程图",
+      "https://www.open.edu/openlearn/mod/oucontent/view.php?id=112559&section=_unit7.4"
+    ],
+    [
+      "作者教材课程站：条件与循环",
+      "https://introcs.cs.princeton.edu/java/13flow/"
+    ]
+  ],
+  "y2021q3": [
+    [
+      "NIST DADS：队列",
+      "https://xlinux.nist.gov/dads/HTML/queue.html"
+    ]
+  ],
+  "y2026q5": [
+    [
+      "作者教材课程站：条件与循环",
+      "https://introcs.cs.princeton.edu/java/13flow/"
+    ]
+  ],
+  "syllabus-algorithm-strategies": [
+    [
+      "山东省教育招生考试院：2026计算机考试要求（二、计算思维；典型策略为概括要求）",
+      "https://www.sdzk.cn/Floadup/file/20251129/6389999945835892448300421.pdf"
+    ],
+    [
+      "NIST DADS：穷举搜索",
+      "https://xlinux.nist.gov/dads/HTML/exhaustiveSearch.html"
+    ],
+    [
+      "NIST DADS：递推关系",
+      "https://xlinux.nist.gov/dads/HTML/recurrence.html"
+    ],
+    [
+      "NIST DADS：分治",
+      "https://xlinux.nist.gov/dads/HTML/divideAndConquer.html"
+    ],
+    [
+      "NIST DADS：线性查找",
+      "https://xlinux.nist.gov/dads/HTML/linearSearch.html"
+    ],
+    [
+      "NIST DADS：二分查找",
+      "https://xlinux.nist.gov/dads/HTML/binarySearch.html"
+    ],
+    [
+      "NIST DADS：递归",
+      "https://xlinux.nist.gov/dads/HTML/recursion.html"
     ]
   ]
 }

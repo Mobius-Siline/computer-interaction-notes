@@ -276,9 +276,10 @@
     },
     "11": {
       "files": [
-        "src/labs/chapter11/algorithms.js"
+        "src/labs/chapter11/algorithms.js",
+        "src/labs/chapter11/practice.js"
       ],
-      "models": 8,
+      "models": 10,
       "ids": [
         "y2022q33",
         "y2022q43",
@@ -287,7 +288,9 @@
         "y2026q6",
         "y2026q42",
         "y2023q69",
-        "y2024q69"
+        "y2024q69",
+        "y2025q24",
+        "syllabus-algorithm-strategies"
       ]
     }
   }
