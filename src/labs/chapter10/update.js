@@ -4,7 +4,7 @@
   const {register,ui}=window.NOTE_LABS;
   const {field,select,btn,table,output,esc}=ui;
   const matches=s=>s.rows.map((row,i)=>!s.where||row.id===s.id?i:-1).filter(i=>i>=0);
-  register(['y2023q15'],'修改条件，先看命中行再执行UPDATE','选择修改值和WHERE条件；连续执行时在同一张表上继续修改。',{
+  register(['y2023q15'],'修改条件，先看命中行再执行UPDATE','浏览器内教学沙箱，不连接数据库。选择修改值和WHERE条件，连续操作同一张示例表。',{
     rows:[{id:'01',name:'王宁',score:88},{id:'02',name:'李明',score:56},{id:'03',name:'赵敏',score:92}],id:'02',score:'60',where:true,preview:null,last:[],message:'先预览范围，确认哪些行会被修改。'
   },s=>`<div class="lab-controls">${select('where','更新范围',String(s.where),[['true','WHERE：指定学号'],['false','不写WHERE：全表']])}${field('id','目标学号',s.id,'text',s.where?'maxlength="8"':'disabled')}${field('score','新的成绩',s.score,'number','min="0" max="100"')}${btn('预览命中行','preview')}${btn('执行UPDATE','run','',s.preview===null?'disabled':'')}</div><pre class="lab-code">${esc(`UPDATE students SET score = ${s.score}${s.where?` WHERE id = '${s.id.replaceAll("'", "''")}'`:''};`)}</pre>`+
     table(['学号','姓名','成绩'],s.rows.map((row,i)=>[esc(row.id),esc(row.name),`<span class="${s.preview?.includes(i)?'lab-highlight':s.last.includes(i)?'lab-selected':''}">${row.score}</span>`]))+output(esc(s.message)),

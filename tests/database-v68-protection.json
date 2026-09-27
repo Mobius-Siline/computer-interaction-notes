@@ -1,0 +1,1875 @@
+{
+  "baseline": {
+    "commit": "17814cd87a7f29bab7f7f6c832a7bb8989637bc5",
+    "tree": "6b3dbe98f16d69a8aad0a733d03729e270003385"
+  },
+  "protectedFiles": {
+    "content/chapter1.json": "0e7a8a030418d7a93e9ef9ec61737c5ce28a7b8e2935f08326985965ddeb15c1",
+    "content/chapter11.json": "64ff8b4093f0a10711f89b14cc2a1917da65b5450a75742127c38e2688a21751",
+    "content/chapter2.json": "77de73dbdeda427431a492d2e0af81eb2a19a1d9ff5abe4eeebb85c769916f95",
+    "content/chapter3.json": "8cff793a7f4996d663ab32f614d0196e2a63220af4e2ff3fb2ab855f0c428cc3",
+    "content/chapter4.json": "1ea1e9b004191a2e2418ee2e653caf9e9ca60711ecdb3cc00618d4db724e7928",
+    "content/chapter5.json": "29418c16c5f3f55efedf6f10ac79364ad8f16f63fd846bf38a88f437885a5fa7",
+    "content/chapter6.json": "ca7895dc8b9f5be918239757b7cdf6b5962c6739c0785ba8539fc49d38f7de35",
+    "content/chapter7.json": "0508bdcab16472bf3302e1b3d562c24a20a0f38449870d9c5aa42c8a6f89c8da",
+    "content/chapter8.json": "2f0ba759e0a056c2b2c24cd0c900cbcc2cd4dff41251945df5edb03cd18ee4b1",
+    "content/chapter9.json": "e7038764a41390c682af1f4f1d02d2550a0218b4fc46ec45274d4d549b9c5a91",
+    "content/chapters.json": "9923097b205ebaf691838d9033699893263133769987389a408fbbed392f3c4c",
+    "content/comparisons.json": "d9e3cba89e5d0b756a86f33c03f1761065a13f50f5627da140ba32287d3357cd",
+    "content/syllabus-audit.json": "0f946ea2fb6c35b928494c432163107ae46a6de07e25cc6e207ef2dd2cc4b631",
+    "note-labs-runtime.js": "c6a4ba5857bb747d4c8b180624ad07252341a926dc51947a4c0e63496434a71e",
+    "note-labs.css": "8d282af8dd7ce763f4d9e6a7b224fedec4c134cfbf4fc88c5fe69915692cf0ed",
+    "notes-2020.css": "d3457f81ccf3273526b933df2a3bb9c13a68428f2176cde8364511d9d9e8d214",
+    "notes-app.js": "2b1efdb04f9d3f01d034bef6906686dbf8c2004cdfbe0c9ff2fc8340e199228a",
+    "notes-chapter-search.js": "20b298ca466485168e58206b93c4ddfca10d5589f0b08f1dc238e8132a240761",
+    "notes-choices.css": "d000ce9b35910abb4cb896da1e3f3bbc68fc63a25bedfc22d068d3dfc597e2b0",
+    "notes-choices.js": "a996debd6424dae1fa7b1b94d896caad798ce801adcbbb7dc2d95a65d23ec69e",
+    "notes-core.css": "e5fd521b339a12911cf3c58a26839e02c7bda5128a442fa38cccfb2926f23941",
+    "notes-demo-view.css": "81b48801ab045712dea5070c539386fd4638409acb63f18a7b519ff3a1c02437",
+    "notes-demo-view.js": "7dbb0a8a4732969306ad04c16861d27489b3564bb8902bf4f1f2471dec77f059",
+    "notes-directory.js": "8fb23d92e0d2355f09bdbdffa06d90723a6b53ff6d39719781d3eac3c3c73a14",
+    "notes-extended.css": "a05a0943569ec2fb563c237cf9a2f920ac86a85fd0b301e9b6f4df68f18cf68a",
+    "notes-home.js": "267d0102d63b54cee03d3de758c9392738f92a64c7e231eb53f0ebb879cca459",
+    "notes-learning.css": "840c813e1d34478e289044e4ebaae6108724355f1a5b1a1632d8b8c9c6c39cf1",
+    "notes-presentation.js": "57bd7f2f016dccd20042a24c4a8add18a3ca34407db25ec99051327cef1a798d",
+    "notes-search.js": "a129d7f68316f320777814f5bf965002dd1ee119b342d74d830460b52201b0a9",
+    "notes-study.css": "152c019b8a7b73220273e92e758956c75aef92577195e33586d6ad53cb4cb496",
+    "scripts/build.cjs": "7729f4bf3cd0974972c1484f32d5e3ffad85e6c907844c69a74605a99eaa2dce",
+    "scripts/discovery.cjs": "d5910c8687e146fbafe3caaf57fdfed23a8943663bb03e2dc5835d8d66b604e4",
+    "simulations.css": "26b19b9c77c8b9b8698e9b7f73c892111da6e5b15e2da2a9639dd07253c8f35c",
+    "src/labs/chapter1/arithmetic.js": "f3e0c75ae57755a387e833f7a6a56270219c72c1055c199052364e2ed52e45f8",
+    "src/labs/chapter1/foundations.js": "21d91badbccd10521beaee342a2984d268d52c4c0a92e34994d5d997f2c65cdc",
+    "src/labs/chapter11/algorithms.js": "e8a314a94befbdac9f56e6283fd8843de65017c282448b7c73a5803cd166f1cd",
+    "src/labs/chapter2/file-management.js": "a759e6d7fe9cb38c494a4e1c03a2d07ab100e4912a78df377697f2cff64a3ae5",
+    "src/labs/chapter2/maintenance.js": "45bf7eab1d916e2cf8ea67e6b3110c9777d6978c56b79972f260b57758c2fcd1",
+    "src/labs/chapter2/settings.js": "62765911aecb53a9189fac27bdb004391d51ea49a6a506037618a52473f0fcb1",
+    "src/labs/chapter2/windows.js": "1361697f292333d74193388266bd0ab4a5ab6ce5820de74c0e94327da4a6c48e",
+    "src/labs/chapter3/columns.js": "a4bbf74188d84c21d1084c306daca8a8dcb9574735de81a55baa262e1f109da1",
+    "src/labs/chapter3/paragraph-spacing.js": "a622ca25377f70bf62e13e918f95fca49722d9e60bb70782f99086267e20f180",
+    "src/labs/chapter3/printing.js": "0f65f78b1808e4dcbd0b54c2f7fd47971d3ff9988ebd3f430b6309a48ba1d427",
+    "src/labs/chapter3/text-editing.js": "8091850d53aa2693c65f928db9e0fdaa932c235e70ae06d05dc584ff76f90547",
+    "src/labs/chapter3/word.js": "282bc8eef22d0b2a89cdfce16b135fbf13ab9cd54b05a810ba1ba4a88351936f",
+    "src/labs/chapter4/analysis.js": "546b40aedc2767a99d33d44748be0bc48eb5a3f689fb6f4f1125c00b960066bc",
+    "src/labs/chapter4/excel.js": "44b3557691b98080072caa29c8335e6fc212acde27233d012b45573ab2a17408",
+    "src/labs/chapter4/syllabus.js": "9276947875d77a5adb453a76026507ad7599d0db41f66359cd376e61c1261d57",
+    "src/labs/chapter4/workbook.js": "1ead5ef14df9c3e406558bd390f9042a387dac96bdb05af2fffbc2c6326c895f",
+    "src/labs/chapter5/editing.js": "564a9b26c46253f0b92887496cac7edb1a194c40d8916b5fa3f8290d9fca96b0",
+    "src/labs/chapter5/output.js": "bf689a0586b527ec069c389dd277d0a411627c0a5117b8de8d513416c8dd8cec",
+    "src/labs/chapter5/presentation.js": "70364482a9cb7f9be9f9618cc5263556fc9aceb2d3788416dbb2f12029e0e027",
+    "src/labs/chapter6/network.js": "b0b75ba543f1c74737b294046878bc34d16ed140c8ba3580a9bade2148dc2a4e",
+    "src/labs/chapter6/printing.js": "645ed3ab7d5cc1c68cd6e8d6cddafb86a7b1d683bd3d86183f056a52dd2102ca",
+    "src/labs/chapter6/topology.js": "875e3d8fe65e03305a403e6fb1e5bc0f4c163b844c4b5831521b001ed4a16b9a",
+    "src/labs/chapter7/image-tools.js": "a17540eb9ac93aed0862efbb7938e08977c4aec240fc95d90dd297b7d7c18fa6",
+    "src/labs/chapter7/media.js": "806e6bb8292a2bd68e3919f53cdf7f93aa5ebd22c9934c7ecaf6a24f394adc1d",
+    "src/labs/chapter7/playback.js": "a0176c615afab7bed2ff132f7c571a016bc6dda4ecb758e90f120c2d46287da6",
+    "src/labs/chapter8/security.js": "264f57a59007e7fc601b6e71a34befff8d6458a1f3ede5e45418effb0977aec9",
+    "src/labs/chapter8/windows-security.js": "4e8ca5912f2cd2da2051d59ff6dc9557b1d6c1e8edcf5b1cea70d99efe3fcb9d",
+    "src/labs/chapter9/chain.js": "9b66be45ac640295cff318956830d6929ae9ea4acca80a1863592c341f26c6f3",
+    "src/labs/chapter9/frontier.js": "ae1d5ec417aaa6fdb13b317b9be201858ad168fd4d656d951a5688acb22f9cb6",
+    "src/labs/shared/math.js": "95c609b399be3f807ab685272fea197e01b314b6440107add2b53167a4042718",
+    "src/labs/shared/syllabus.js": "096c1a77bea9fb9ba05b45c6fa7debb7da025391a29df6ef3de4d379e7389131",
+    "templates/chapter.html": "df7ad90261ea1c00c30c2832a9c6651c03a8f047fa3d909fdabb8fa5b92ca1cb",
+    "templates/index.html": "09982c1521bafa0b2cde056750eb49d081cbca1a4e16be1c461e29b9105b32c2"
+  },
+  "chapter10": [
+    {
+      "id": "merged-20",
+      "section": "10.1",
+      "count": 8,
+      "pointHashes": [
+        "a68d3adc40202e15a968303882b82068f92aa0a6b84b92bc53fe81bc8464a7c3",
+        "3f7fc5929075594008cc259728912d64a9e812af0b116d1076bd17bc045959a9",
+        "e50fcda95bdea26e783aa151d603db1067298e73561bb2f1f8571c821ce2c24b",
+        "973ec4643bba9823be36a0f79a38ee6fb944c198d3d5907723c31c937579f95a",
+        "d3518e691e2ac60bbe8e4812025910c6329292e7b98f0a77448416d602e7cf3a",
+        "73f4183a36431a923689964153ceaa99510a5a486be32819e1b0572c36f1b74b",
+        "790fa3acea9b70fece522b9b24ada4ce0d51c2cb04317ce5e502ce8553fa27a4",
+        "917bdada90c369005a0859b89857e77786663ebc0711b64dd859542fcd249a1e"
+      ],
+      "sources": [
+        {
+          "year": 2020,
+          "q": 25,
+          "type": "多选"
+        },
+        {
+          "year": 2023,
+          "q": 46,
+          "type": "填空"
+        },
+        {
+          "year": 2024,
+          "q": 14,
+          "type": "单选"
+        },
+        {
+          "year": 2026,
+          "q": 11,
+          "type": "单选"
+        },
+        {
+          "year": 2022,
+          "q": 27,
+          "type": "多选"
+        },
+        {
+          "year": 2021,
+          "q": 13,
+          "type": "单选",
+          "page": 3
+        }
+      ],
+      "keys": [
+        "2020-25",
+        "2023-46",
+        "2024-14",
+        "2026-11",
+        "2022-27",
+        "2021-13"
+      ],
+      "related": [
+        {
+          "id": "merged-21",
+          "label": "SELECT查询与字段选择",
+          "reason": "把筛行、取列映射到WHERE和SELECT，同时注意关系代数投影去重与SQL默认保留重复的差别。"
+        },
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "理解连接匹配和结果重复前，先分清属性、主键、外键及某列是否由业务规则保证唯一。"
+        },
+        {
+          "id": "y2020q14",
+          "label": "一对一、一对多和多对多联系要双向判断",
+          "reason": "一对多、多对多联系决定跨表匹配的可能数量，连接不能按屏幕行号机械拼接。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "merged-21",
+      "section": "10.1",
+      "count": 6,
+      "pointHashes": [
+        "21e81cd9961421dcbc6c1d064b2c3964a3ac151df1bc915c760c1c4383dcbb56",
+        "584cf4577d5ede088148f194e4c21e19f0e563efd30bd98391d50e3d7be1bb10",
+        "9cbf241fa58a99d80c49a6c5603c82da8e9d605b3d9ad2406a0d54c955ffb302",
+        "6b74d31a71ed4f3f52ee2d5b691e4d26afcafe039403416e19caa63123bf8fe9",
+        "8d773d3c227c887c2b282c1d56613d562429fc2010f9b8d1795467722b6619a6",
+        "530ef140e321b9e09d498159136fb95d632372f755aa974401da6354c20ded95"
+      ],
+      "sources": [
+        {
+          "year": 2020,
+          "q": 35,
+          "type": "填空"
+        },
+        {
+          "year": 2026,
+          "q": 43,
+          "type": "填空"
+        }
+      ],
+      "keys": [
+        "2020-35",
+        "2026-43"
+      ],
+      "related": [
+        {
+          "id": "merged-20",
+          "label": "选择、投影、连接与集合运算",
+          "reason": "用关系代数区分选择行、投影列和连接来源，解释SELECT命令并不只对应其中的选择运算。"
+        },
+        {
+          "id": "y2023q15",
+          "label": "UPDATE修改已有记录中的字段值",
+          "reason": "UPDATE前可用相同WHERE查询核对目标行，查询条件的理解直接决定修改范围。"
+        },
+        {
+          "id": "y2020q9",
+          "label": "高级筛选同一行是AND，不同行是OR",
+          "reason": "SQL筛行和Excel高级筛选都要求正确组合条件，同行AND、异行OR可帮助练习条件分组。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2023q14",
+      "section": "10.1",
+      "count": 8,
+      "pointHashes": [
+        "ae55fa1f3043b6b6ddc9f70af0cefa3181ce8a2d8c8e6254ce8d11e168dd1377",
+        "282eed31f6e6638dcc5f9d69f7664642d5722b720d354d74c8de639811194795",
+        "276365bb4322d2ce7f24140abbd8b5f19a77109df47bf40143a5b36af5d1a76f",
+        "9efac4ef5e7b5eacaba30b175a7a85dfb19ed97941f136f00efcb3bd5170aae3",
+        "48c876cea591129e60c1a37ed3c8dc78a560808a236a647b484d3f014afe8a38",
+        "418a13f3b9dd9d3c6768379b1609650bcb388f2edc2cc47754d50b237ff78a78",
+        "bfbd5579cae1fac598aba731e2aba013a638ca590f7a6dec6feb6c78e6f9f485",
+        "fdb7e2e8c8db47bffbdba61b46b1bc58262f8e20494fc73182af7455461ec437"
+      ],
+      "sources": [
+        {
+          "year": 2023,
+          "q": 14,
+          "type": "单选"
+        }
+      ],
+      "keys": [
+        "2023-14"
+      ],
+      "related": [
+        {
+          "id": "y2020q14",
+          "label": "一对一、一对多和多对多联系要双向判断",
+          "reason": "一对多常在多端保存外键，多对多常用关联表；联合主键是否重复要看整组属性。"
+        },
+        {
+          "id": "y2025q12",
+          "label": "INSERT向表中添加新记录",
+          "reason": "插入新记录时，主键、非空、唯一和外键约束都会检查，定义正确不代表任意值都可写入。"
+        },
+        {
+          "id": "y2024q36",
+          "label": "DELETE删除满足条件的记录，不删除表结构",
+          "reason": "外键与其他约束也可能限制删除或触发级联，DELETE的作用不能只由WHERE单独推断。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2023q15",
+      "section": "10.1",
+      "count": 3,
+      "pointHashes": [
+        "9cf008e05cee0219b8c630837a9f7d0bbdcadad6e88cb1b4e789b84a422bc72c",
+        "58c73a58a36a414e5f9bbf89f3e84424a6ff8090481ffaeef30ebf7d6ddb70b4",
+        "16407ad37e0e46703dc03b5b5b6d6fd717dd25fcbd8a30e6c265723adf3c48ef"
+      ],
+      "sources": [
+        {
+          "year": 2023,
+          "q": 15,
+          "type": "单选"
+        }
+      ],
+      "keys": [
+        "2023-15"
+      ],
+      "related": [
+        {
+          "id": "merged-21",
+          "label": "SELECT查询与字段选择",
+          "reason": "先用同一WHERE查询目标行，再理解UPDATE将修改哪些已有记录；查询结果排序不会改变源值。"
+        },
+        {
+          "id": "y2025q12",
+          "label": "INSERT向表中添加新记录",
+          "reason": "UPDATE改已有行中的值，INSERT添加新行，可用同一业务场景判断应修改还是追加。"
+        },
+        {
+          "id": "y2024q47",
+          "label": "ALTER TABLE用于修改已有表结构",
+          "reason": "字段值改变用UPDATE，字段定义或约束改变用ALTER TABLE，须先判断操作的数据层级。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2024q36",
+      "section": "10.1",
+      "count": 6,
+      "pointHashes": [
+        "b02de80e87df71e54fcc6edb839798cbccc174cbb590d33678c3b34120ec7c76",
+        "7b477d65334dc7860d199449a6a974261f83800b881981b2f4a3bd36ef8b5203",
+        "d2ad4d4a6e914831b0da98d8875d22c5e6e43f24162198fe5c517db85dd144b0",
+        "de94b67eab832d7dc1bf2663a57a2f3a0890fc69c5f0d88fcbe9a1d3a0990d5f",
+        "5010557fc073c305acb13cb49aa277d78d9caf22ab67fe8cc9be66f19a0829d5",
+        "d6a074fb88c13642990d575634b845a85b1d8d7a34d0bf087d5a4d8bddde0a5b"
+      ],
+      "sources": [
+        {
+          "year": 2024,
+          "q": 36,
+          "type": "判断"
+        },
+        {
+          "year": 2022,
+          "q": 46,
+          "type": "填空"
+        }
+      ],
+      "keys": [
+        "2024-36",
+        "2022-46"
+      ],
+      "related": [
+        {
+          "id": "y2023q15",
+          "label": "UPDATE修改已有记录中的字段值",
+          "reason": "DELETE和UPDATE都用WHERE限定作用行，但前者移除记录，后者通过SET修改字段值。"
+        },
+        {
+          "id": "y2024q47",
+          "label": "ALTER TABLE用于修改已有表结构",
+          "reason": "删行、删列与删表对象属于不同层级，ALTER TABLE修改结构，DROP TABLE移除表。"
+        },
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "参照完整性可限制记录删除；主外键关系解释了为何有些DELETE会失败或发生级联。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2024q47",
+      "section": "10.1",
+      "count": 4,
+      "pointHashes": [
+        "17d3edaf28f5bb99faf3cf8bca3b8d91ad8ff675ad837f646a26129b9f496319",
+        "4be8f50d445f89e89658d77dd8811d4dbab913681abdc957742e5708ff9618a0",
+        "69ead7b09fc63e5f5c563d45d6508cafba02df15dd4c29c607429af39edeb776",
+        "0ee88193226e366920664d94a55b9a0421d04c5cfc00767340ffd2abee3f48b0"
+      ],
+      "sources": [
+        {
+          "year": 2024,
+          "q": 47,
+          "type": "填空"
+        },
+        {
+          "year": 2021,
+          "q": 35,
+          "type": "填空",
+          "page": 6
+        }
+      ],
+      "keys": [
+        "2024-47",
+        "2021-35"
+      ],
+      "related": [
+        {
+          "id": "y2025q12",
+          "label": "INSERT向表中添加新记录",
+          "reason": "给表增加字段使用ALTER，给表增加记录使用INSERT，可用列与行的变化辨认命令。"
+        },
+        {
+          "id": "y2024q36",
+          "label": "DELETE删除满足条件的记录，不删除表结构",
+          "reason": "进一步比较删记录、清空记录、调整字段与移除表对象，避免把结构变化当作DELETE。"
+        },
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "新增非空、主键或外键等约束前，要检查已有数据是否符合这些约束所表达的业务规则。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2025q12",
+      "section": "10.1",
+      "count": 3,
+      "pointHashes": [
+        "79e5821e086079a0e276a3fc19ca0bd676ca734497b27952f404a2ac235eb53f",
+        "19b9588b5dbb097aed046ce6501f5f8ba984e0792430a0f8c57c0387cb95df84",
+        "934e18f9e6eadc4969ec0e35c9aa7eebd5b6272db2426286e615458bf1c53d18"
+      ],
+      "sources": [
+        {
+          "year": 2025,
+          "q": 12,
+          "type": "单选"
+        }
+      ],
+      "keys": [
+        "2025-12"
+      ],
+      "related": [
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "字段与值对应正确后，还须满足主键唯一非空及外键参照等条件，才能成功新增记录。"
+        },
+        {
+          "id": "y2023q15",
+          "label": "UPDATE修改已有记录中的字段值",
+          "reason": "新增记录用INSERT，修改已存在记录用UPDATE；是否已经有目标行决定操作选择。"
+        },
+        {
+          "id": "y2024q47",
+          "label": "ALTER TABLE用于修改已有表结构",
+          "reason": "INSERT增加行而不增加字段，补充字段定义要修改表结构。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2020q13",
+      "section": "10.2",
+      "count": 3,
+      "pointHashes": [
+        "39acfca0950f14be6a2e6c91fd298eb6beccd1f0f2679df81f087e4ad7116aaf",
+        "967693887a9cc26110993a2d39cc68eb5e4ec63e5a1bebee9b5dc1ca1de2e6f6",
+        "579bb7d36632877b375709d30bc3444daa91b9e586648a1a8588a5ae578b03c5"
+      ],
+      "sources": [
+        {
+          "year": 2020,
+          "q": 13,
+          "type": "单选"
+        },
+        {
+          "year": 2023,
+          "q": 36,
+          "type": "判断"
+        },
+        {
+          "year": 2024,
+          "q": 27,
+          "type": "多选"
+        }
+      ],
+      "keys": [
+        "2020-13",
+        "2023-36",
+        "2024-27"
+      ],
+      "related": [
+        {
+          "id": "y2025q42",
+          "label": "数据库运维工作由数据库管理员负责",
+          "reason": "DBMS是管理软件，DBA是负责配置、安全和运维的人员，二者名称相近但层级不同。"
+        },
+        {
+          "id": "merged-2",
+          "label": "系统软件与应用软件按功能区分",
+          "reason": "软件按主要功能分类，不能因名称含系统或随系统附带就判断其类别；DBMS也要按管理职责理解。"
+        },
+        {
+          "id": "y2025q11",
+          "label": "数据库设计不因规模小而省略",
+          "reason": "拥有DBMS不等于已完成数据库设计，还须经过需求、概念、逻辑和物理设计。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2025q42",
+      "section": "10.2",
+      "count": 3,
+      "pointHashes": [
+        "eb512dc9f75f955ada9614878fffcfa5294d768ce38d702bca93eb902d1bd181",
+        "2feffcafc6be5b28878f48a50bf3eb7e758bf728d5445c8c68067be67b8cc54a",
+        "c093c3592badb60c92c30c2d2d0dc27f040db0d1e050b28b9faa15fbaf1ed9ed"
+      ],
+      "sources": [
+        {
+          "year": 2025,
+          "q": 42,
+          "type": "填空"
+        }
+      ],
+      "keys": [
+        "2025-42"
+      ],
+      "related": [
+        {
+          "id": "y2020q13",
+          "label": "数据库、DBMS与数据库系统不是同一层级",
+          "reason": "在数据库系统组成中定位DBA与DBMS，区分人员责任、核心管理软件和数据集合。"
+        },
+        {
+          "id": "y2026q16",
+          "label": "过载与宕机会破坏信息系统可用性",
+          "reason": "备份恢复、监控和故障处理服务于可用性等安全目标，能据题干后果辨认运维重点。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2020q14",
+      "section": "10.3",
+      "count": 4,
+      "pointHashes": [
+        "8cf2bcb53363d92fbb437660a518c736d73caa308cf406343f82ff75e18c1b97",
+        "f21f01cb0f65914c3fb042a29b797dcf8de44522b78037f5f12afd29a242a970",
+        "4e91cfe433e06ce9d0e1f11cc74b15b34a48053e85065ccf47c642bdc44c16be",
+        "c9b2be0b8c83cfc41cfb4ce52358d13d6b0d946ce9e37665fa251c0d92a73434"
+      ],
+      "sources": [
+        {
+          "year": 2020,
+          "q": 14,
+          "type": "单选"
+        },
+        {
+          "year": 2022,
+          "q": 13,
+          "type": "单选"
+        }
+      ],
+      "keys": [
+        "2020-14",
+        "2022-13"
+      ],
+      "related": [
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "把业务联系落到表结构时，一对多使用外键、多对多使用关联表，需同时检查键的唯一性与空值规则。"
+        },
+        {
+          "id": "y2025q11",
+          "label": "数据库设计不因规模小而省略",
+          "reason": "先在概念设计中表达实体联系，再在逻辑设计中形成关系模式，联系基数不能由当前样本随意决定。"
+        },
+        {
+          "id": "merged-20",
+          "label": "选择、投影、连接与集合运算",
+          "reason": "连接必须产生所有符合条件的匹配组合，一对多或多对多会影响输出行数。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2026q12",
+      "section": "10.3",
+      "count": 9,
+      "pointHashes": [
+        "39ab155459d55a58bfcaa9c2b2d445a22ee3d99612908b00da6803c83c2b4f53",
+        "8c52dad88d2bfc75a4896173b42f178233f3b228d8bc9eca870fc30cdea43b36",
+        "0b053553aca4f9cf6a0e02c5a17a65d0218d7fed0e3dc0bc3f5fba25e53b773f",
+        "62f249cbf1157f19239a63bc368546d50ce7c525a4c9a9213ebbdb933dbcdc9a",
+        "b1bb37c2fe48dab21214ef524e551276970cd977479ef487208a66e7c7a6726d",
+        "b6cf3fbf0fb57f117c7b359d5a55de26dcbba8e534b3b094eb1fe5ce4220d5bf",
+        "964c5554bcf5412981563f4b6f93a0a1c1ef58eee0f43a84f6724dba284bcf6b",
+        "48ba419aa7d796799b1b033af8ac274260cf9379454bd1b713a2c65c619dd4c2",
+        "1ff06fee9ade38ccc24f8c927f2043d356448c4e580c85e7523c145d64ab709a"
+      ],
+      "sources": [
+        {
+          "year": 2023,
+          "q": 26,
+          "type": "多选"
+        },
+        {
+          "year": 2024,
+          "q": 15,
+          "type": "单选"
+        },
+        {
+          "year": 2026,
+          "q": 12,
+          "type": "单选"
+        },
+        {
+          "year": 2022,
+          "q": 35,
+          "type": "判断"
+        },
+        {
+          "year": 2021,
+          "q": 27,
+          "type": "多选",
+          "page": 5
+        }
+      ],
+      "keys": [
+        "2023-26",
+        "2024-15",
+        "2026-12",
+        "2022-35",
+        "2021-27"
+      ],
+      "related": [
+        {
+          "id": "y2025q18",
+          "label": "大数据的规模、速度、多样性与价值密度要按材料判断",
+          "reason": "数据的规模、速度和类型可解释选型需求，但仍要具体评估查询、事务、一致性和运维成本。"
+        },
+        {
+          "id": "y2020q13",
+          "label": "数据库、DBMS与数据库系统不是同一层级",
+          "reason": "先区分数据集合、管理软件与整个数据库系统，再讨论关系和NoSQL产品适合什么数据模型。"
+        }
+      ],
+      "searchAliases": []
+    },
+    {
+      "id": "y2025q11",
+      "section": "10.3",
+      "count": 4,
+      "pointHashes": [
+        "0003334677bd0460a28d22aa8ddead39d8572cf2e5c1684637a8684694d88b49",
+        "51824e2a851a9cc32596245212021404377f09704be4effc52b06c0b00fb2ef1",
+        "ceaddcb6f50b87c0e10de332f81aa7ed1adcbc3a32bdb7887ccbfeaba8b7fc47",
+        "07b649ff42296fc9aa669e21b4a1a5675c50bc87a3bf3803b5da3267d4dca912"
+      ],
+      "sources": [
+        {
+          "year": 2025,
+          "q": 11,
+          "type": "单选"
+        },
+        {
+          "year": 2021,
+          "q": 14,
+          "type": "单选",
+          "page": 3
+        }
+      ],
+      "keys": [
+        "2025-11",
+        "2021-14"
+      ],
+      "related": [
+        {
+          "id": "y2020q14",
+          "label": "一对一、一对多和多对多联系要双向判断",
+          "reason": "E-R概念设计需要由业务规则双向判断一对一、一对多或多对多联系。"
+        },
+        {
+          "id": "y2023q14",
+          "label": "属性、域、候选码、主键与外键要分层判断",
+          "reason": "从概念模型转成关系模式后，需要明确属性、域、候选码、主键和外键约束。"
+        },
+        {
+          "id": "y2024q47",
+          "label": "ALTER TABLE用于修改已有表结构",
+          "reason": "设计确定或调整字段及约束后，ALTER TABLE是修改已有表结构的实现入口之一。"
+        }
+      ],
+      "searchAliases": []
+    }
+  ],
+  "manifest": {
+    "schema": 1,
+    "shared": [
+      "src/labs/shared/math.js",
+      "src/labs/shared/syllabus.js"
+    ],
+    "chapters": {
+      "1": {
+        "files": [
+          "src/labs/chapter1/foundations.js",
+          "src/labs/chapter1/arithmetic.js"
+        ],
+        "models": 7,
+        "ids": [
+          "y2022q4",
+          "y2026q41",
+          "y2025q2",
+          "y2026q3",
+          "merged-3",
+          "merged-1",
+          "y2020q31"
+        ]
+      },
+      "2": {
+        "files": [
+          "src/labs/chapter2/windows.js",
+          "src/labs/chapter2/maintenance.js",
+          "src/labs/chapter2/settings.js",
+          "src/labs/chapter2/file-management.js"
+        ],
+        "models": 20,
+        "ids": [
+          "y2022q34",
+          "y2022q44",
+          "y2022q75",
+          "y2026q34",
+          "y2025q26",
+          "y2025q32",
+          "y2026q26",
+          "y2020q24",
+          "y2020q3",
+          "y2025q33",
+          "y2020q2",
+          "y2024q5",
+          "y2026q33",
+          "y2026q35",
+          "y2026q8",
+          "y2026q25",
+          "syllabus-windows-paths",
+          "syllabus-windows-selection",
+          "syllabus-windows-search",
+          "merged-4"
+        ]
+      },
+      "3": {
+        "files": [
+          "src/labs/chapter3/word.js",
+          "src/labs/chapter3/printing.js",
+          "src/labs/chapter3/paragraph-spacing.js",
+          "src/labs/chapter3/text-editing.js",
+          "src/labs/chapter3/columns.js"
+        ],
+        "models": 38,
+        "ids": [
+          "y2022q10",
+          "y2022q54",
+          "y2022q55",
+          "y2022q69",
+          "y2022q70",
+          "y2022q71",
+          "y2025q36",
+          "y2023q56",
+          "y2023q55",
+          "y2023q52",
+          "y2021q56",
+          "y2022q24",
+          "y2026q47",
+          "y2024q54",
+          "y2023q7",
+          "y2020q41",
+          "y2020q43",
+          "y2025q48",
+          "y2026q36",
+          "merged-8",
+          "y2025q47",
+          "y2024q8",
+          "merged-5",
+          "merged-7",
+          "y2020q63",
+          "y2024q7",
+          "merged-6",
+          "y2020q61",
+          "y2025q56",
+          "merged-9",
+          "syllabus-document-coauthor",
+          "syllabus-office-exchange",
+          "syllabus-word-smartart",
+          "syllabus-word-screen-clipping",
+          "syllabus-word-print-controls",
+          "syllabus-word-paragraph-spacing",
+          "syllabus-word-text-editing",
+          "y2020q44"
+        ]
+      },
+      "4": {
+        "files": [
+          "src/labs/chapter4/excel.js",
+          "src/labs/chapter4/workbook.js",
+          "src/labs/chapter4/syllabus.js",
+          "src/labs/chapter4/analysis.js"
+        ],
+        "models": 45,
+        "ids": [
+          "y2022q58",
+          "y2022q59",
+          "y2022q61",
+          "y2022q66",
+          "y2024q67",
+          "y2020q57",
+          "y2020q52",
+          "y2024q57",
+          "y2021q9",
+          "y2021q25",
+          "y2021q47",
+          "y2021q49",
+          "y2021q50",
+          "y2021q51",
+          "y2021q52",
+          "y2021q58",
+          "y2026q50",
+          "merged-10",
+          "y2020q59",
+          "y2020q9",
+          "y2026q51",
+          "y2025q52",
+          "y2025q50",
+          "y2025q51",
+          "y2026q52",
+          "y2020q49",
+          "y2020q58",
+          "y2026q49",
+          "y2023q11",
+          "y2024q58",
+          "y2023q10",
+          "y2024q68",
+          "y2024q59",
+          "y2023q60",
+          "y2020q56",
+          "y2020q7",
+          "y2020q48",
+          "y2024q10",
+          "y2023q57",
+          "y2020q47",
+          "y2020q8",
+          "y2024q11",
+          "syllabus-sparkline",
+          "syllabus-worksheet-protection",
+          "syllabus-excel-multikey-sort",
+          "syllabus-excel-whatif-table"
+        ]
+      },
+      "5": {
+        "files": [
+          "src/labs/chapter5/presentation.js",
+          "src/labs/chapter5/editing.js",
+          "src/labs/chapter5/output.js"
+        ],
+        "models": 20,
+        "ids": [
+          "y2022q72",
+          "y2021q10",
+          "y2023q35",
+          "y2026q54",
+          "y2025q10",
+          "y2025q53",
+          "y2020q12",
+          "y2020q11",
+          "y2020q53",
+          "y2026q55",
+          "y2024q65",
+          "y2023q13",
+          "merged-11",
+          "y2020q54",
+          "merged-12",
+          "y2024q46",
+          "y2024q12",
+          "y2026q53",
+          "y2024q26",
+          "syllabus-ppt-output"
+        ]
+      },
+      "6": {
+        "files": [
+          "src/labs/chapter6/network.js",
+          "src/labs/chapter6/printing.js",
+          "src/labs/chapter6/topology.js"
+        ],
+        "models": 15,
+        "ids": [
+          "y2022q15",
+          "y2022q16",
+          "y2023q16",
+          "y2023q17",
+          "y2021q15",
+          "y2021q28",
+          "y2021q37",
+          "y2026q28",
+          "y2026q38",
+          "y2020q26",
+          "y2026q14",
+          "y2023q47",
+          "syllabus-mobile-communication",
+          "y2026q13",
+          "y2020q15"
+        ]
+      },
+      "7": {
+        "files": [
+          "src/labs/chapter7/media.js",
+          "src/labs/chapter7/playback.js",
+          "src/labs/chapter7/image-tools.js"
+        ],
+        "models": 8,
+        "ids": [
+          "y2023q19",
+          "y2024q32",
+          "merged-14",
+          "y2020q38",
+          "y2023q18",
+          "syllabus-media-edit-export",
+          "y2020q27",
+          "syllabus-image-editing"
+        ]
+      },
+      "8": {
+        "files": [
+          "src/labs/chapter8/security.js",
+          "src/labs/chapter8/windows-security.js"
+        ],
+        "models": 5,
+        "ids": [
+          "y2022q39",
+          "y2021q18",
+          "merged-16",
+          "merged-15",
+          "syllabus-windows-security"
+        ]
+      },
+      "9": {
+        "files": [
+          "src/labs/chapter9/chain.js",
+          "src/labs/chapter9/frontier.js"
+        ],
+        "models": 4,
+        "ids": [
+          "merged-17",
+          "syllabus-quantum-basics",
+          "y2026q39",
+          "merged-19"
+        ]
+      },
+      "10": {
+        "files": [
+          "src/labs/chapter10/database.js",
+          "src/labs/chapter10/update.js"
+        ],
+        "models": 6,
+        "ids": [
+          "y2023q14",
+          "y2020q14",
+          "merged-21",
+          "merged-20",
+          "y2024q36",
+          "y2023q15"
+        ]
+      },
+      "11": {
+        "files": [
+          "src/labs/chapter11/algorithms.js"
+        ],
+        "models": 8,
+        "ids": [
+          "y2022q33",
+          "y2022q43",
+          "y2021q3",
+          "y2021q33",
+          "y2026q6",
+          "y2026q42",
+          "y2023q69",
+          "y2024q69"
+        ]
+      }
+    }
+  },
+  "legacyRows": {
+    "y2025q23": "e84fcaa907a98dd7381193073e75cecabc9052d3467bbf65897cd8f0c54ff07a",
+    "y2026q18": "0157fd722f6e08e5cf890c37be6ffb7238d5702ebf2fb76bb9d748fcdeed9a39",
+    "y2025q21": "f791e31c6ca674ab71ada0ee09f638a1d9bbcdc1a071f566616b659a215ce099",
+    "y2026q1": "777b6c1c8a6f0c5dddbf83a47f2a2e9f1bc1d455a919d3086abd3f1ae4b1a386",
+    "y2020q23": "a19c081408ad7232332ea8baa653ba543479930938bbcadd92eb80863bfbc6d5",
+    "merged-2": "4979554be2eafb383f2ce98326394948e8480a9b32adac0e57aeade244e9d12d",
+    "y2024q41": "afd4c62320f5be6d69ef4a0afb45cb858d4807fb1ba6f4ebff4337a8353369d2",
+    "y2026q31": "97a4c66ed16281ac068ffaccc342147e486f48203945b6a7aa96360f3857255b",
+    "y2020q1": "4d1f2271f43d50f6a144de6875344af909e75395e3c3b622a105a5d267b814af",
+    "y2020q22": "0d04e20720fcc9ffa334563bf209743dbbc2152c5e9f87769a44283b675f2af5",
+    "y2025q1": "43aecb2c993963c65fa70a25757df3f42cedc5d3d42adbdb6238cf83f03e0070",
+    "y2025q31": "11ce44c0b727260b2eda3de13e860303f7a182c3836349a9447583664b6ba386",
+    "y2026q7": "a99298727a6272546a71a45da29711b1ab1e41e86ab6ae54ba57b0dc2522a0e8",
+    "y2024q6": "099784d00971bd8d659d59fe9ea60898e0031ff2d244951bb93ede02f0ac0d1d",
+    "y2025q6": "f52b955a788326bc35cd85ad5ad61dda31b06dbf2d2271befa5beff39d5d6bf4",
+    "y2025q7": "95ddd34414f71e660cdff7fa3b6713098ddbaec98d2a1a3117c199582e4e7c9c",
+    "y2026q32": "bedfe5d900134f2a13b988a7b7911e5153f1536187a9f906eba8d932f1502635",
+    "y2026q9": "37b50390b9e8c616e2b23f8528c431658555e5388d97d79dfdb5ab612bd55e52",
+    "y2024q33": "019b68b7110c724eca41a8eb6c3828391738179b91d4caf01098b32069f838dd",
+    "y2025q34": "2718a85a31971663682635960a5d317dc09dabad19522eaf4574950ebb9d8d23",
+    "y2024q66": "38a3006210d28c7d21af810ff16449d961643f0ca19b7e43da56dca00a4ca3c3",
+    "y2020q60": "17d91121201960f16ad48ebd63762e5ddc56eccd16d315518965bb64f496af9f",
+    "y2020q62": "b397a95c414bb74660be609a35403efdeac40673a40fc29356c11d9a73956131",
+    "y2024q55": "69168c7cd1c3fe502da6902f648234184af7b7a3cedcdcc733f8e82c86412460",
+    "y2020q10": "7c0da06dc82355536e9c49ca71f674af02e144d211701a2d6dfb11ab15451760",
+    "y2023q45": "45af7c3f06a83697d14032cf0632a94596345673a3060aeedcc7c5c9b83ba201",
+    "y2020q15": "42be9795b3c0c3556b4fc56a7b1b5baf2be044ace4b8bf35d70ddc779f175999",
+    "merged-13": "973e2198d054f6c7b2a86368087fae6a62c1d2b69bab1174c396c9115e61a266",
+    "y2025q13": "41f7d4113864ffe699a566cbc01e867a05efe798c0dad767b6eda35a86ead532",
+    "y2024q16": "a6153dbe6433b78a440200928cac7606014daff3bee5ced0a62484a9d0089a79",
+    "y2024q48": "95076bdb210e1b137b0089c1c67f05001221440c5119e3033750c66ddf5280e1",
+    "y2026q15": "036684be1cd49fb8e771b35f80f7c9698fc5abd602a198dec938bf9f0de61ac3",
+    "y2020q16": "6085fcf3bf4b1cf3ec46fdbf7367206caae0359111bae5be09faf36c92ff0454",
+    "y2020q36": "6989ad272288584502024171e624f2caaa91d799b4d6067a4aa72975120ce6cd",
+    "y2024q17": "8875cc76d478685346b8c1b1d0141424816c5e07637a9f25f4344602f38657a6",
+    "y2024q28": "a102282222fee1bbddef821a539c3ae80f2fd529f6d9d6dbd5a2973c8a80b00a",
+    "y2025q37": "a3bbd42fa3069e2b9c4e7bc2e5e02ab93f254036dfb5378158c1c7c77a7a37f6",
+    "y2025q38": "89fcb692af4e577f4957fa6448b28d9d9dca3ac6be4aafce3a265d9da3eed3af",
+    "y2020q27": "e160bd5669e36109dd87d966057f83556b0245e502e574f0d23e09965a3213a7",
+    "y2026q4": "d6c48d73cf7c68392f305dff7c40c9efe14fec311abf31fa0942c586056c018e",
+    "y2020q17": "71f8601d9ce28cbede0172efc0d327796c4e8302c7584641acd8bf5d28538cd1",
+    "y2024q43": "226ee28b0fa18d821b1d90502d9ae8b9c44f6a4663d9c4946aa9a307f8f7ca79",
+    "y2023q39": "8d1765c11f5d4ea96ee1ce5662c38d26e01acdac517e2506df7f276a7cb5c6d7",
+    "y2024q49": "fd428c81f1b1d1e20fc967029b1993d9df9f6d2e9d9a847809cddf66062ae9d4",
+    "y2025q30": "782aaac21a02e6ee3c58726ee729a6e08ba2810ace6b7359f9af49f7d0568774",
+    "y2026q16": "951fc7d80f86afb519c6354172cf830bb8a46774b6301b3829eb3f9443494d61",
+    "y2020q28": "ec81e99334745d311b5373c21c17fc966a5d89a20dc3d94167ad493adb91fec5",
+    "y2020q20": "33e98e7332eb50044780c7275815834df3cfaf3f44daafa5a2900f54c7fa1206",
+    "y2026q30": "7b41fd8038ccce71523da5ae8f7fa5ac1fba48725be6707094bfdb3443f13b45",
+    "merged-18": "b75ec6d21e589d5bece950b596d8539c3148384ad484ee54eb203f5c7ca23dce",
+    "y2025q18": "e754556da986a925beeba5d3ffac3a5fed18307411b856621e06e96c49af9367",
+    "y2025q40": "adb32ebcacee44583ce04ba932178a670cf28e881fe80cbcc883c3e6dabb5130",
+    "y2020q30": "eac455ae2485f9e396d44181d13d062bd7c39b073771a71ccee7c9850007a52a",
+    "y2025q20": "ff1ccb137c6b6f576203098c5f04c7c9e1a9588ee6a7ee313f2e2b0913865ee0",
+    "y2026q45": "05a623862b4164157969dd3e0db4876ded4b0f3756861928bc0db632e165ed57",
+    "y2024q20": "98c52df133f1b04b1f047520273b10224fd649d92e7589e98980b8525d5d7016",
+    "y2024q47": "179320593d46a48bf1bedb014b4b4bb85fe152b022f929c1ef8bc1ac4e19031e",
+    "y2025q12": "b61c284c290f6f7f5a4fb4302e7095af8d300fc3facd927f879000493e34e5f3",
+    "y2020q13": "733784cf918eb9582eb5e869324d1e89ec510a244e05818039e2f8e960d7b5b2",
+    "y2025q42": "171246fb2edc6748c2106b963271fb5bba8d521194cf02b80e780e0a06fa7c4d",
+    "y2026q12": "bc67abc2e7027742067406b23dcf6ea2d1578ce967520a9fd174ef64a139dedf",
+    "y2025q11": "33be627b700c4aecfa5058fc3cce5485d1ccac107aaf5baf02a29ebcef0fe589",
+    "y2025q4": "06ed6c3d9a68648ed33586b0cea583f900fa75fc1bf45767fee1b0439e654788",
+    "y2026q5": "df8b2f66a4849f1c0ec40671ec682b3148b5c18a771f119491b49d704aef5352",
+    "y2025q24": "16543b76dd764b80d8d7c2cf76ec6624804d4c83a89e217a1d6d2dce68faa2a1"
+  },
+  "referenceRows": {
+    "merged-3": {
+      "count": 3,
+      "hash": "0783ff9bec6d3dba6e8b402ef72242e01dbf79cae8c096f6ecc896320c237074"
+    },
+    "y2025q2": {
+      "count": 6,
+      "hash": "668cec4116008f084e576f2a8d6649e31baf991b6597a06959be61b06feaf056"
+    },
+    "y2026q41": {
+      "count": 3,
+      "hash": "a85b68010b8bc2b6da341a26b7c51c9839ebd2097710b632d499be3aa2c53d6d"
+    },
+    "merged-1": {
+      "count": 5,
+      "hash": "aae93112187344765286f532d9e430e6dd8494d9921b9ae5fdf77cea9af167c4"
+    },
+    "y2024q41": {
+      "count": 2,
+      "hash": "9f19c53f7534156c4b72c91ccf576ee0ccfcf3cb1e305631ae3a21809d315928"
+    },
+    "y2026q3": {
+      "count": 3,
+      "hash": "fa5c4b5f81909181e21d16fa96f4ca82015b32d2f856941d69b5a60989c6cb28"
+    },
+    "y2022q4": {
+      "count": 2,
+      "hash": "3928550d5a7b1b1ac3aa356d52914e7e2924baf0b0f4af64dfce92faf1cae4bd"
+    },
+    "y2025q1": {
+      "count": 2,
+      "hash": "8f831ec839a3363138c56d7a1de35921e8893442f842729634ae2c9ec7ab9174"
+    },
+    "y2020q2": {
+      "count": 2,
+      "hash": "f482252ee77548245c22d6d3eda14bd97274490be0e812c0db074332a5b3697b"
+    },
+    "y2020q3": {
+      "count": 6,
+      "hash": "66d986d6deeb3f81b1d5c4d984b87ddbd297c6c15fb9c020c8a53f425ae6274f"
+    },
+    "y2020q24": {
+      "count": 6,
+      "hash": "dbb35894b40d0fe96aa43ce3cd800f81d51962e47a9446079cfad5608a7bb039"
+    },
+    "merged-4": {
+      "count": 10,
+      "hash": "7ccf0f30086104863685b8b204d3438eb493ab364e1d7be325d179e950be6f0c"
+    },
+    "y2026q35": {
+      "count": 3,
+      "hash": "779fd42847c56af7bba3f432b82b284ffc474e94cd6d531ad585949d1eb60fae"
+    },
+    "y2025q33": {
+      "count": 4,
+      "hash": "828f4e0098cb3cdf8909932eec04ea11c19dd06086af17c7f3be6159a63bc3fa"
+    },
+    "merged-5": {
+      "count": 6,
+      "hash": "19b96330e8d4f89dc767c0c14d73d5ddd15323b940ae1b9940cd34aa8ed409a5"
+    },
+    "y2023q55": {
+      "count": 4,
+      "hash": "462ec8b5c1e41848f5264d161cb5a1456cc72c46695798c757f50722af9b2b5d"
+    },
+    "y2025q48": {
+      "count": 4,
+      "hash": "ff35d55834199b674edbf344865ae6bbe2c705c5de1e5a24e17a029351afe826"
+    },
+    "y2020q41": {
+      "count": 9,
+      "hash": "722c273438d5fc91f420d2879927f02f74882a1dd80a143685a0c37cce8d8bb4"
+    },
+    "y2020q43": {
+      "count": 3,
+      "hash": "e2a3b615ed0ef2de1456823272228c900b10575f1080f6bc64727bbaba1e1f98"
+    },
+    "y2020q44": {
+      "count": 5,
+      "hash": "9b53e654ff61d23c750c2935b5a002d4bdf2d92a27a5cb8e8b3664e2e8cb92ce"
+    },
+    "y2020q61": {
+      "count": 9,
+      "hash": "7bccfdb9326d912739f5036edd89ddd52c612ed3ac2cb0538ada22b8a5fd6fe6"
+    },
+    "y2021q56": {
+      "count": 8,
+      "hash": "1c3dd88097b2623e76027f274228e379271a4124884bb4bababd3675a1ec6795"
+    },
+    "y2022q24": {
+      "count": 2,
+      "hash": "cbe1f741fa70fba44bafa1d4e8664ef9235c3624152434d9f58add384c1e2466"
+    },
+    "y2023q52": {
+      "count": 11,
+      "hash": "b92fe92fe3e7fc44a51f674771c30e6cc0659ba0ca78fde0db338ad817ee553c"
+    },
+    "y2020q62": {
+      "count": 4,
+      "hash": "b9412f0d01e37e6b9671937428bce53ef565b3cf6b97ef271db6dfa09267129e"
+    },
+    "y2020q63": {
+      "count": 6,
+      "hash": "6b1e1bcbad27217b996ee5d1c4a95d6b17cfb72842510f8d142be8b0b61ab2a3"
+    },
+    "y2022q69": {
+      "count": 2,
+      "hash": "15593efe9f747ee33f4a6d0aaa7ffe68079fad972d6ba742cac05e3f4273864d"
+    },
+    "y2024q8": {
+      "count": 20,
+      "hash": "e683d07db203032808878fe4845713d05a3dfbd081c7d3196832654d374eba94"
+    },
+    "y2025q47": {
+      "count": 12,
+      "hash": "adbcb47791c471d8ea549a8f9dce7a013a36f55bbb82ad49fe2c36a83fef3d87"
+    },
+    "y2026q36": {
+      "count": 14,
+      "hash": "6d64b35619f1b2983bdac786082d519e13af7a455f9634f69f67a440a3ab13f4"
+    },
+    "y2022q71": {
+      "count": 9,
+      "hash": "3b4f928ebf8fcd3835ef01e411219d4957e7de48bf60bf60824dca2c48725b98"
+    },
+    "y2023q56": {
+      "count": 3,
+      "hash": "9a5dd698093bea6af4c6364bbf1240ebea786384e5de5eb8034f9f191f024dff"
+    },
+    "y2025q36": {
+      "count": 6,
+      "hash": "eff58a6f0edc69c23f319cfb9fa345c22c231489863a19f3100c553883e798b6"
+    },
+    "y2020q48": {
+      "count": 3,
+      "hash": "c6e7226ead44760c62e0b5fccb72f7a0b9d6d893cd7b70ab84500d8d843bc24e"
+    },
+    "y2022q58": {
+      "count": 3,
+      "hash": "acc3d0268ed52b35c28a2e4b70c789fdea49d26db96223ec2e5f652121fd9304"
+    },
+    "y2023q11": {
+      "count": 1,
+      "hash": "2c20b5df35f19ac13207edb5c44eda7e5c84d1283ad184bfa2f36b4101a567e5"
+    },
+    "y2023q60": {
+      "count": 2,
+      "hash": "b803076523267e1de56b911e63722fdf2bae0709219e33d9d06f23e0aab14054"
+    },
+    "y2024q57": {
+      "count": 1,
+      "hash": "ee743f4da18a132ef609606c212fcf228170e653852a4085d422baeb56022a4f"
+    },
+    "merged-10": {
+      "count": 2,
+      "hash": "37af917c1d98c5f17dd0836858795dfed3e0e8a4d03656659faf8bc09de55640"
+    },
+    "y2020q56": {
+      "count": 1,
+      "hash": "b9ebf72bf42c94eb0d5305b0d02e7ec16d3b716f3d5f736b0cb7d469973485fb"
+    },
+    "y2020q57": {
+      "count": 2,
+      "hash": "f92264fabd4249cf103ed2e8f31303c9400bbd28fd6be63cca21cbd614605492"
+    },
+    "y2021q49": {
+      "count": 1,
+      "hash": "0fc52d9f599b0f40c2da7937dc3e844847bdbe867881a8ff5425e6e419cda54b"
+    },
+    "y2021q51": {
+      "count": 3,
+      "hash": "2ce2c1b02f9ff20fd0f2cb654f1ac793d08534d5096b15c1076d67836eb5dca5"
+    },
+    "y2026q50": {
+      "count": 2,
+      "hash": "9b9c84ba8a091a79aca5719d5ac4444a718955eafdb68e60fd4f88e724c842b0"
+    },
+    "y2026q49": {
+      "count": 3,
+      "hash": "7496802a1bf4eb5cd3aba4b3a920e94cb058bafda00e4b6dd92132fd1d7de300"
+    },
+    "y2020q47": {
+      "count": 1,
+      "hash": "68bcbb76833f959efc7cb59911e85f26a3545cb4b1a1279753c41f09e23376a8"
+    },
+    "y2020q52": {
+      "count": 1,
+      "hash": "27d4f040088fc9f7eba87782eb1082e065587590808e6a36a4437ebcc7cd9d86"
+    },
+    "y2022q61": {
+      "count": 2,
+      "hash": "2640d0db85265ba0bdffdac2c975352b919d577eca073292c7272f71cb565a62"
+    },
+    "y2025q52": {
+      "count": 1,
+      "hash": "27d4f040088fc9f7eba87782eb1082e065587590808e6a36a4437ebcc7cd9d86"
+    },
+    "y2020q9": {
+      "count": 1,
+      "hash": "fde203a988bae7df7adb0f1c7b0e514a98f761328a69ed6371aba6c084f56ae5"
+    },
+    "y2020q58": {
+      "count": 2,
+      "hash": "906dbd8f6fef2779ce5c14e882fb4f9facf674e90b1ad73a085276c2797d5ffd"
+    },
+    "y2021q58": {
+      "count": 1,
+      "hash": "94e62d6bc540c3ecdaae2f1ee44ec496d64c5d27f64ac036d8d72cb97c7261b5"
+    },
+    "y2023q57": {
+      "count": 1,
+      "hash": "a812fc5a15d347b6f65475d74454ef61dc87110426b283966f9c10d7e12b9d71"
+    },
+    "y2024q67": {
+      "count": 2,
+      "hash": "a9d5867b4dfdf0165d67ff2a672c167832c79766e164f71ccf9064e8b217cd50"
+    },
+    "y2026q51": {
+      "count": 4,
+      "hash": "107c31f5c40862f560d05b9f14eebce7e1d8a774581c0fa203d1d11c3fb3e5ec"
+    },
+    "y2025q51": {
+      "count": 1,
+      "hash": "375c569ee589735900037ec42f9a5c4522cbdd42d09a558d686d9f81c593e0dc"
+    },
+    "y2020q10": {
+      "count": 3,
+      "hash": "b6a73995093753c7492ff2cd52e093b7b4228fabb62a7a25aae5f888f258424b"
+    },
+    "y2020q12": {
+      "count": 2,
+      "hash": "ab15daed7d7dc1e4006c88eceb8045d0322fb83d4966905bad4015edde02aac5"
+    },
+    "y2020q11": {
+      "count": 3,
+      "hash": "cfb5da0e6dcf637a292cf703fb5b6378f53a44e1b19507ef4da2b4fcc1004d9b"
+    },
+    "y2020q53": {
+      "count": 5,
+      "hash": "414e5f095f5abd3133461aaa5a304d9bdd1d2f36ab0cf4800064cd42bd095c5b"
+    },
+    "y2020q54": {
+      "count": 4,
+      "hash": "0664d40886549cf4532e0e6bc0aa607555589044ff879f8ce7435744fe0c1e47"
+    },
+    "merged-11": {
+      "count": 7,
+      "hash": "65f26e949559d4159ea3f557498e60c47243a2e6831c6523b277f630fec6d9f5"
+    },
+    "y2023q13": {
+      "count": 7,
+      "hash": "dcb8d754f7cf156f18e4ef55e1152108db891d307e12c5a67c79a82a4e699ab2"
+    },
+    "y2024q65": {
+      "count": 2,
+      "hash": "1d512216c7466272f815e1ac94c819f3bb50cff4330e73887517f7b689caeb86"
+    },
+    "y2026q55": {
+      "count": 1,
+      "hash": "4c9b820187af60cebce8f4e1ab1d9c2e1946f0db4a2383aa86f88a50d1e30e1f"
+    },
+    "y2020q26": {
+      "count": 2,
+      "hash": "8fcb69a6843838386a61fae0c0865855ac689cd2c72344c1f955027fb732f5c8"
+    },
+    "merged-13": {
+      "count": 2,
+      "hash": "ca4b70d0fc0628ae4099c1126a1b238ddefdf04ed93568e7beea1ffa3978f6c7"
+    },
+    "y2023q17": {
+      "count": 5,
+      "hash": "58aeaa896b8ad408de8420793c819b87c2248b159ef7795b0bbdc2d4e6080820"
+    },
+    "y2023q47": {
+      "count": 2,
+      "hash": "5fdf0a35524d3f09df98305bfc4f67b36ca1cc7bfea1ea33fbeb007a61e66925"
+    },
+    "y2026q14": {
+      "count": 6,
+      "hash": "9e859c7711f5e2b64bdd11f63e7ca24f2cf9ea8c3f27b13504678186013477c6"
+    },
+    "y2026q28": {
+      "count": 5,
+      "hash": "5228effdbc1fde6e08e7ee90955897ac619800db61f18e8640ea558c21298e28"
+    },
+    "merged-14": {
+      "count": 13,
+      "hash": "cb432379fa4a698f02435714b461037ec1c33853f8413c1247823e3c86496329"
+    },
+    "y2020q27": {
+      "count": 6,
+      "hash": "400849236ec14032f562392172197395250bb27d926ab252aded58010c8d522e"
+    },
+    "y2023q18": {
+      "count": 2,
+      "hash": "f903c4053336e43ce3a80418a65df325876d5716e28f09a5e5ba0c5389e587c9"
+    },
+    "y2024q32": {
+      "count": 7,
+      "hash": "0936ed4b4fc81a1de41518ae30c7c5d5258a31e27d551fc63914fe10966debe9"
+    },
+    "merged-15": {
+      "count": 9,
+      "hash": "fb86363a51b3d68772ca901f54c2a389e7e25750c6165c52fe2199774e214c09"
+    },
+    "merged-16": {
+      "count": 2,
+      "hash": "6e09001c4e866e1838897d47bc2d6b0d21bc40e58a467424fdbc16ba72840d5f"
+    },
+    "y2026q39": {
+      "count": 3,
+      "hash": "9e431d73c1fbb080137896167d00543f10136aec5851e35abb8f35083e2ca070"
+    },
+    "merged-20": {
+      "count": 3,
+      "hash": "70e0fcb05c849a0e699c50cd7c05ae8c8bbd1a19acd3fd8dc7b8341387aa09aa"
+    },
+    "merged-21": {
+      "count": 2,
+      "hash": "ab147ebff7c2a7bbc021e58dafb4b1dcafdf8fe21fc26a6da7ddce68f3608e6b"
+    },
+    "y2023q14": {
+      "count": 2,
+      "hash": "791523d9536f66b0256f2c15eeabc712e511758b14cbdcc66769801c9e237c32"
+    },
+    "y2024q36": {
+      "count": 5,
+      "hash": "b9cc2a829a402760e35163028e00ff68da23753afca83a4dbe02d09fe3581fa9"
+    },
+    "y2021q33": {
+      "count": 2,
+      "hash": "d761caacebe636e829fe3c585ba2e31aabcace8aa39bcc346e90ee84746c737a"
+    },
+    "y2024q69": {
+      "count": 1,
+      "hash": "260ff9bd5b4076de283db08e5c2fe0b6e0c692c44403400d5e83283e9b99f7c4"
+    },
+    "y2020q20": {
+      "count": 3,
+      "hash": "55a290b1cdfca90f5232bba82b8b7537beb716b32650e21abdff30ce122361c2"
+    },
+    "y2026q18": {
+      "count": 3,
+      "hash": "9b1a805ab0f8d027c7f2b03c407f32b8e21aee8d1d42aab879fc021f3ce7e0c1"
+    },
+    "y2020q31": {
+      "count": 1,
+      "hash": "5f749a0ad107251199056d01b9905fc343657f2aceb66b71a92bec61b853f560"
+    },
+    "y2020q23": {
+      "count": 1,
+      "hash": "d3097da8eaf26b48f5ad4b7bae9d69b4d524fe7fba38aeb4a7cc8e1d9769ccf9"
+    },
+    "y2022q44": {
+      "count": 1,
+      "hash": "fb245a78975eba2e346c3fdb891e603a072753cb48412f1c5838c1458f86a878"
+    },
+    "y2026q7": {
+      "count": 1,
+      "hash": "c23e82d800e091a604df8ef22a78a7f3aa3c4a6d475ed9c5c87eb7f80cc973ea"
+    },
+    "y2022q75": {
+      "count": 4,
+      "hash": "926726975109219435b7d1d5fe8f2bf46d0833a0e20d08f0a97b1aec51c7fdf9"
+    },
+    "y2026q25": {
+      "count": 3,
+      "hash": "ae394f4bcff91fcf06b7e99b54f371b0bc883bb34a2c8b5f6b18b1fad6d04f21"
+    },
+    "y2025q26": {
+      "count": 1,
+      "hash": "291d2f78e9d39a76f815c814ee21e308613819a98386836ab7a739b5bfe797cf"
+    },
+    "y2026q34": {
+      "count": 3,
+      "hash": "898e640f76fd282404e5d3b3445632d2190f6ad88e8ad255a9390e77715a4b7d"
+    },
+    "y2026q8": {
+      "count": 1,
+      "hash": "67e1d5ab98ef671ba70bb6280d3543bfffd355986a0246bde84a82d04e77f7dd"
+    },
+    "y2024q5": {
+      "count": 4,
+      "hash": "36f2062fe867c4864e8f245a2ddc441ad0d7a5f05cc4f19ab927b0a60e0f8986"
+    },
+    "y2026q33": {
+      "count": 3,
+      "hash": "5506c9f9867710fe3a57396b40e5d5dee1223bf9e7999b4325c4d2447ef4c1c5"
+    },
+    "y2025q34": {
+      "count": 5,
+      "hash": "29dcb8a5dee99f7ddc61a46fa9415f11223457eb8d36f9c4f13877a268d8a31e"
+    },
+    "y2026q54": {
+      "count": 3,
+      "hash": "4571a391b9ba49b304cf738eb2d5ff2484e09d8cf8282217ea36058f654bddd1"
+    },
+    "y2022q72": {
+      "count": 2,
+      "hash": "c6c3f9a9b653a476ec4d0a8a782cdcf475a11d5a79cb27c2649b300f04bcb381"
+    },
+    "y2020q60": {
+      "count": 10,
+      "hash": "7bf722f3dd06a74b8958ecc4629d4e2f5987a5c9cefd5d9a5d687318c0e3cd80"
+    },
+    "y2022q70": {
+      "count": 4,
+      "hash": "db0d8b68d7cccf0cfb094ec7fe3f71cff1072fe223e89234ccaf119184c29213"
+    },
+    "y2023q7": {
+      "count": 2,
+      "hash": "898b8e95bc6be1321d49bc4310a98f23280e4e427d08ee20cef247bf744389dd"
+    },
+    "y2024q55": {
+      "count": 3,
+      "hash": "bc5cc07d07bd3fd3526e1f2acb3b72435eb356220319bcbde0fb5eafb1bb5ffd"
+    },
+    "y2024q26": {
+      "count": 7,
+      "hash": "97a7e95d4b57e99fb3b582568f7bd4843de2385f47d171bb1da02d1667370847"
+    },
+    "y2024q46": {
+      "count": 1,
+      "hash": "fcd1ca2749328092839402a01ec12c0c3988d137dcd8d2022963d7367770dc8d"
+    },
+    "y2025q10": {
+      "count": 2,
+      "hash": "eb2c5f6a08c3a6fec91efe48412a33a4e2bea08889729fc3b24e04d711049e41"
+    },
+    "y2023q35": {
+      "count": 4,
+      "hash": "cb4886b15023d714b12dfec89aa39bba38adb7aac236746f5cde795d926e3e53"
+    },
+    "merged-8": {
+      "count": 1,
+      "hash": "f44692b0d23215e29d9ad436534cfb5c07a677c3738413e27805447321366e61"
+    },
+    "y2026q53": {
+      "count": 4,
+      "hash": "a76f61e627de23496c1fee9509f5a4b1f2d5ee5db60ab85c25b823b2c818b517"
+    },
+    "y2021q15": {
+      "count": 4,
+      "hash": "57598dd9d1be6058ef03ef302e617638a92899e6ff2b18061292828aa081fac0"
+    },
+    "y2025q13": {
+      "count": 6,
+      "hash": "e2922783b2ee621c7119344cf799a972aad5c10a6d931525f01b9608b47d2ec9"
+    },
+    "y2021q28": {
+      "count": 1,
+      "hash": "0c4597200df53b0c08839967f254f81c7ebcaa1a00cf41d31f3325eb186255fb"
+    },
+    "y2023q16": {
+      "count": 2,
+      "hash": "a834e669286e1c9a2581c8a47acba22ee112589f1b2902e959370a56cc1da5f2"
+    },
+    "y2020q38": {
+      "count": 4,
+      "hash": "700e8fd4b977e15e5c9147d74d002a82f5713a931fa1fe7346fe6b97114022bf"
+    },
+    "y2020q17": {
+      "count": 1,
+      "hash": "ac47c7ddc2e1a190e84bda767a29f721082ef882b5b775ff97d60caca2181790"
+    },
+    "y2026q16": {
+      "count": 6,
+      "hash": "d81ad726ca6921aeab1e4736af603e118226a6b458bf45ea4a61df8b7509ba5e"
+    },
+    "merged-19": {
+      "count": 5,
+      "hash": "070c810e8edd28a2b02c7ee04de21b5ae5aa4c542e034f107a2c3ab716298596"
+    },
+    "y2025q20": {
+      "count": 3,
+      "hash": "abbecdef06fa9841a1156091dda5e7efd96a73de8b39a758d401301c9081a35b"
+    },
+    "y2020q14": {
+      "count": 1,
+      "hash": "03ab338072ad2453b78d19da6e0defe4b8e2c9de0f6db2b88e2efeb04da8f8c3"
+    },
+    "y2025q11": {
+      "count": 1,
+      "hash": "ea8017a27b9d8ad634329d817d1bb1683ebad3afc7a369e8debfdec45c586af7"
+    },
+    "y2023q15": {
+      "count": 1,
+      "hash": "721d1b8267da2ce6e9fd23d6843547690f8f044514d78e919aa11cad041079ee"
+    },
+    "y2022q33": {
+      "count": 1,
+      "hash": "ff59ab0eae7c9663e6fe3ed025f50e67df919e2fdf4ffd5be2d755f2c83f4a96"
+    },
+    "y2026q6": {
+      "count": 1,
+      "hash": "431c006a4e65ae6eb5da2452b0757493eff30d80ce4e1063df8476aa962522ea"
+    },
+    "y2022q43": {
+      "count": 1,
+      "hash": "548c4ea9fb25177997e52292baa7042a896deb4fe0f8b570d37b1490146bd36f"
+    },
+    "y2023q69": {
+      "count": 1,
+      "hash": "d1941df555a08a7062ac23ede6700657be1dde4067efbd718dc32fb609ae9ec6"
+    },
+    "y2025q24": {
+      "count": 2,
+      "hash": "0baa8968312dc7903de3ba049c3e40cb668cf289e782901dbbb5ed0c30c8e780"
+    },
+    "y2020q8": {
+      "count": 4,
+      "hash": "861d57379399a2ea6d12c0311feb91d78222f0c861e131ffffba5ddb727c3267"
+    },
+    "y2021q9": {
+      "count": 1,
+      "hash": "8415a74e6b1783fb7a3437afe2ccca5b722f27a365a00f3afaa4571d4d30c4bd"
+    },
+    "y2024q11": {
+      "count": 4,
+      "hash": "27b81b26cf00542a0fbb92c8624aa559e4dabffc60f837bafd34405eca135980"
+    },
+    "y2020q49": {
+      "count": 1,
+      "hash": "472d12c74a358d5ac0f2fa1f6ad70af64736f144679661bbf3834d52ee803001"
+    },
+    "y2020q59": {
+      "count": 5,
+      "hash": "0ca2057b719baffb20677843bdb426bfbb803a9c09a9e9769015736bea5cbf5c"
+    },
+    "y2023q10": {
+      "count": 5,
+      "hash": "a45b9cd1e9c6a249cd12185c930bfd79d6fd3f003bf38f14e4ea4570e6f2431a"
+    },
+    "y2024q68": {
+      "count": 2,
+      "hash": "c1fdb3bab22b7c39c24b64ef8fc8e0fef233ab1b5719a377566e87f040b8230f"
+    },
+    "y2026q52": {
+      "count": 3,
+      "hash": "bf8774839f1bf1570a900dc72919c53c0c6a2c3e32d9a16bbd4ebe0e177e32b7"
+    },
+    "syllabus-document-coauthor": {
+      "count": 3,
+      "hash": "7966339b295025d727d6d1b2b56fd183e55f4c2284332346190fd47e6a548552"
+    },
+    "syllabus-sparkline": {
+      "count": 3,
+      "hash": "b14fedfc1ed2ae6fbd9f8d63746711dadfe3b49c69bd3b28e04facb3be3da5dd"
+    },
+    "syllabus-quantum-basics": {
+      "count": 6,
+      "hash": "3478424ce824c876d5a0e8076c9d43da5fbede65db98212b804e83a89362e3f7"
+    },
+    "syllabus-mobile-communication": {
+      "count": 2,
+      "hash": "2305fa3a2f5c08c1bdc749124da1e6b16036d3aad4d2b8ca589b5b1081039cff"
+    },
+    "syllabus-office-exchange": {
+      "count": 5,
+      "hash": "1dccca241519d652114fd5da5a0b1c890a6460b9e2e7a4fdfdfdd9dbf59c53e0"
+    },
+    "syllabus-ppt-output": {
+      "count": 6,
+      "hash": "828c727843dc2eef236f5f9a4cf9229b9a51c8857ccc9e530ce251633d473849"
+    },
+    "syllabus-worksheet-protection": {
+      "count": 3,
+      "hash": "85699515a8e3f04025bd500c0b36af950e741811f6ff9d9937e99861baa68ad1"
+    },
+    "syllabus-word-smartart": {
+      "count": 3,
+      "hash": "43b84294e1fb33f274d073bb2d33cda7acb2b075b1c89eb027c5edf5bd910db7"
+    },
+    "syllabus-word-screen-clipping": {
+      "count": 1,
+      "hash": "6596f37257b012ceca8765a99b0b9a8f9354f0f70a62ad01c11c1a70ea295f04"
+    },
+    "syllabus-word-print-controls": {
+      "count": 5,
+      "hash": "1039610dea0c1953913a797b53ab548f151805b8537ba4cb48b2ed0a46dfe7c5"
+    },
+    "y2024q59": {
+      "count": 3,
+      "hash": "f50e8c7cf115fb983051a53caceedc43af39027aecd638e6e44d7e982dd13ca2"
+    },
+    "syllabus-excel-multikey-sort": {
+      "count": 1,
+      "hash": "3b2881053252caf3e8480df2de9d7307cc04c97fc1e72c2b9400005fde9a29eb"
+    },
+    "syllabus-excel-whatif-table": {
+      "count": 1,
+      "hash": "c8acb83f9c6664ed61f3dd38435a8f14b21364b9aedf6713ef86d286994dafc6"
+    },
+    "syllabus-media-edit-export": {
+      "count": 7,
+      "hash": "88363b34ddf47be59d8def1e2deeff68bea45808a3024a38652ed088ddd59e22"
+    },
+    "y2024q6": {
+      "count": 3,
+      "hash": "a125a2462a1d53891626b8c87387d253e9f6f165048f1e5f89c1729c18731bcc"
+    },
+    "y2020q16": {
+      "count": 7,
+      "hash": "f1925e0138110e8bcfff1061c30c4580313d7ac6b695f4b619c42021d0190742"
+    },
+    "y2025q4": {
+      "count": 1,
+      "hash": "7229f6d4e8d96d54e74c3c1c53260065b5a5fc37331b60512cb0804eeb0246c2"
+    },
+    "y2025q23": {
+      "count": 3,
+      "hash": "8db75b7c5773d986afb0114c3d1bbde2b891d0a6ce265bae581362529692e304"
+    },
+    "syllabus-windows-paths": {
+      "count": 8,
+      "hash": "f311ac57ca60827d0c9d53bb265de01474bb39d1bb8420d216b94230f33e1d95"
+    },
+    "syllabus-windows-selection": {
+      "count": 4,
+      "hash": "af17c4b92bfe2cef9a0ab54797410aaa77df3ed2672da05fd93f9695f364fe3f"
+    },
+    "syllabus-windows-search": {
+      "count": 4,
+      "hash": "cf6400944ceb6986161a1af9e13d41c019f701f699bc1a3808eabe8e4606ada8"
+    },
+    "syllabus-word-text-editing": {
+      "count": 5,
+      "hash": "e1e11aed6684d3c18f7c74040025ca4fcf3985b1ebdd328185c15f31c893f9a9"
+    },
+    "y2024q7": {
+      "count": 2,
+      "hash": "aaf2fc3f21b9e645b5a732f52eae2492ca57f81b952b75a66d8df5c44aa30ff5"
+    },
+    "merged-7": {
+      "count": 6,
+      "hash": "edf38a4d79d966323b122d4001a9f5953101a179bfa6caf855b2781bf8476a80"
+    },
+    "syllabus-word-paragraph-spacing": {
+      "count": 2,
+      "hash": "8b737f8734c72bf05c952cd222e92c84b3576d4188bb89804a69c91e0781eda3"
+    },
+    "y2026q47": {
+      "count": 2,
+      "hash": "498540aa518d0982f58382bdadfa2d7deeef386ebf31dff285de2f65bf1df207"
+    },
+    "y2022q10": {
+      "count": 4,
+      "hash": "d7c11e354f192dc76d08a1439054d0934a31f29a2a0b82359f3791b0cdc0ecab"
+    },
+    "merged-9": {
+      "count": 12,
+      "hash": "6ba9bbfbda0d07b4fe511aacfcbee774b1fc14eb19ae754d82ca7853c83910f2"
+    },
+    "y2022q54": {
+      "count": 4,
+      "hash": "73d4fb6d0bbd95afcf68db3e6ca9bd65a16a47b9035ca19f6e02a40802e82e01"
+    },
+    "y2025q56": {
+      "count": 7,
+      "hash": "60d0d5d916cc807b0d647d9d22ef153bd1a3bf91a179bb33111704e63f943c21"
+    },
+    "merged-6": {
+      "count": 7,
+      "hash": "63a8065510800e2a7e80dd2c81c845824c899aab4a465e6cf4a6f4e71e2b4ce1"
+    },
+    "y2022q55": {
+      "count": 2,
+      "hash": "8adf4ba309073f4ad7c73373c4ade72ec0ca795430bc4f413712ed88a2bd7d3e"
+    },
+    "y2025q21": {
+      "count": 4,
+      "hash": "c99fde1a6fed24209eb8b51f01126a68b85edd02eed022a98aa9fb8cbf49c5b3"
+    },
+    "y2021q25": {
+      "count": 1,
+      "hash": "164294d3fda78ca8b319b84d50b21c400380568cd15a21363a2dfb880057444e"
+    },
+    "y2021q52": {
+      "count": 2,
+      "hash": "d304dc8f8c27c0c7d7cb90071477d3d442cc447d5f4516bd8c725332b769cd1a"
+    },
+    "y2022q34": {
+      "count": 1,
+      "hash": "c5e97e7a9d8f9a1bcf3a6fa454c7e97f46b03ff8ef0c65066dc95f81bc418f00"
+    },
+    "y2026q26": {
+      "count": 1,
+      "hash": "950fb4c4cdcab34c91c0e5d843008d181fc9d1bed29fcdb0c259b68857e45309"
+    },
+    "y2026q32": {
+      "count": 1,
+      "hash": "9ad5a256773281e4b539a99948591edede7cf41b186fea105663f71cb28d0ce3"
+    },
+    "y2026q9": {
+      "count": 1,
+      "hash": "cd298e9a8b84fb8a467c92104d1b928591aca0bfda68d40d9f6f4ff616440ecd"
+    },
+    "y2020q1": {
+      "count": 1,
+      "hash": "4c1156ff30ee06f710c97877bfabc80a9b94c87fd375e88858d36618b5f931ba"
+    },
+    "y2024q12": {
+      "count": 4,
+      "hash": "91c31f552babb337ccf161dbd933d73c7589e04fe03e99486997f9569bcc1899"
+    },
+    "y2021q10": {
+      "count": 3,
+      "hash": "4eae3ae3b42bf908515f5d522bae7f46f13b5698585fd148d195ece3b60805b6"
+    },
+    "y2023q45": {
+      "count": 3,
+      "hash": "c380e8892417cdec8c6b18131e6d2f25d223038c996f5a8399be84df56892630"
+    },
+    "y2025q53": {
+      "count": 1,
+      "hash": "d3b110480a79e8a61e0d34418c14b9ac44c6ccdef3462d70984506770f656464"
+    },
+    "merged-12": {
+      "count": 1,
+      "hash": "0a64e75787f03bbe9dde21c1af47a2994f73dc98e9686e455c3fd6f9808fb4f7"
+    },
+    "y2026q13": {
+      "count": 2,
+      "hash": "b798a5eea52b3c5058f15ef46fe42c2885a25d5554f2838873af49f4e2a15a8b"
+    },
+    "y2020q15": {
+      "count": 2,
+      "hash": "acab209c8222689be07d6bb089c97dac9931896170728d40e83d15eb7dc0fe41"
+    },
+    "y2024q48": {
+      "count": 5,
+      "hash": "18f605464bd24f7453ad5eac4240493142ff008cd5c1bb4c18df5823b13d21be"
+    },
+    "y2022q15": {
+      "count": 2,
+      "hash": "7e9e5635c65edcaa426ea1a3a3ea953be4f7bcc2311ae41206e3cf97e0b7caa2"
+    },
+    "y2024q16": {
+      "count": 3,
+      "hash": "a3a2932ad2bbe80e3fbe5cf493607e318dead14637fc7ed85405145ee47a4a0e"
+    },
+    "y2020q36": {
+      "count": 1,
+      "hash": "5f95600920c96db65ca0ff6e15832cddf51fcda37895667e1535fe10e7fcbb0f"
+    },
+    "y2026q38": {
+      "count": 2,
+      "hash": "b2855d0c211cdfdf257ce554ad185a7184a4aaa318480132f30d4faa56e14c89"
+    },
+    "y2024q17": {
+      "count": 4,
+      "hash": "dea8636637d2c4d02f982b69790da0c88e49dd7a0dd6c50923160de93d564198"
+    },
+    "y2025q37": {
+      "count": 2,
+      "hash": "79030f68abcac8c875f00f07a5a2d1e3ee3d64297285906c410f2ea9461baa00"
+    },
+    "y2025q38": {
+      "count": 3,
+      "hash": "050c515a62c2eaa988fe56d18533d4d5a89a2fabd8cbab1e8f159ade3eb1f4c2"
+    },
+    "y2023q19": {
+      "count": 1,
+      "hash": "91ef4b2e49bc948141f05123424701387346afc91956dd2b45fd2395b4e44f63"
+    },
+    "y2026q4": {
+      "count": 1,
+      "hash": "13be4a2248b0b9cb9776fc5e58046f74130cb78726ee4be69eb19b894cd36c11"
+    },
+    "syllabus-image-editing": {
+      "count": 11,
+      "hash": "f0a7f1ff09a008f823bec52a4ac91f0e8260f26c2dba4729a58cab4f85e78e9d"
+    },
+    "y2024q43": {
+      "count": 1,
+      "hash": "8d7606155216862f6341362e574e6f5796ba83f298eb47d5f7cf6598d24fc26f"
+    },
+    "y2025q30": {
+      "count": 9,
+      "hash": "9c44b3773de160dda6942f1242097129b1032f5cd6c97c3fe78106aae7f2d770"
+    },
+    "y2023q39": {
+      "count": 1,
+      "hash": "4f2ca117b698ed8530f2adcb6926649cfd37d9b90ef2ed9f2c0276f6130d55d9"
+    },
+    "y2024q49": {
+      "count": 1,
+      "hash": "4310907671640a5a60b61ff11073a6a69db2b0b0e51fbfefcc2f44698238e14a"
+    },
+    "y2020q28": {
+      "count": 5,
+      "hash": "785bb40eb79be033fefa7bde1f0c15c4fbe7a3c43d909d6958effaf51543a163"
+    },
+    "syllabus-windows-security": {
+      "count": 6,
+      "hash": "a9c36b91d3da3c1d5eb36eff72f0b26b38e84fbed38d166eb9f907d0f97d7c73"
+    },
+    "y2026q30": {
+      "count": 2,
+      "hash": "c7d9f560d61ec8e95e54dd9362082668085367cbb1cd323fd92f727ad9f12ed9"
+    },
+    "merged-18": {
+      "count": 2,
+      "hash": "615f0f3c75b4507466e2a88d336ba0ae6bb2c4db8fb41f5ec838dcc304eedb08"
+    },
+    "y2025q18": {
+      "count": 2,
+      "hash": "493cb5c5f7e5ebf35618eb4d42cefe92fd0ecbf525b2c18c875df36881a82e47"
+    },
+    "merged-17": {
+      "count": 1,
+      "hash": "efe7b89802e9cb7403b865a3e21495bc88540237e1e4da812dfca6296b2968fd"
+    },
+    "y2020q30": {
+      "count": 2,
+      "hash": "0b426806c401ae918bce2645367aa2804394eea932a6b943ef331ebb346a7f75"
+    },
+    "y2026q45": {
+      "count": 2,
+      "hash": "4cb056f1486d56184c04eb064f5150ba72c70848d66e5d3c561a27f6db0d65f4"
+    },
+    "y2024q20": {
+      "count": 3,
+      "hash": "3b1b66362c8d897d2f6354d47f4e4dcbb07cfe294cd2a79e8008075b763b1ac8"
+    },
+    "y2025q40": {
+      "count": 2,
+      "hash": "5f76d313e17da7ab32a9746148b3d745f5134a17fdcfc042f1c55b022bbd0141"
+    }
+  },
+  "sharedScene": {
+    "file": "simulations.js",
+    "before": "    \"y2026q12\": function (demo) {\n      return `<div class=\"database-model-lab\"><div class=\"document-store\"><header>文档型 NoSQL</header><pre>{ name: \"王宁\", score: 92 }\\n{ name: \"李悦\", tags: [\"AI\"], city: \"济宁\" }</pre><div class=\"cluster-nodes\"><i>Node A</i><i>Node B</i><i>Node C</i></div></div><div class=\"model-selector\">${getItems(demo).map((item,i)=>`<button type=\"button\" data-sim-choice=\"${i}\">${escapeHTML(item.label)}</button>`).join('')}</div><div class=\"relational-store\"><header>关系数据库</header><table><tr><th>ID</th><th>姓名</th><th>班级ID</th></tr><tr><td>01</td><td>王宁</td><td>1</td></tr><tr><td>02</td><td>李悦</td><td>2</td></tr></table><small>固定结构 · 约束 · 事务 · SQL</small></div></div>${feedback('模型选择看结构、事务、查询与扩展需求；NoSQL不是“无SQL、无一致性、一定更快”。')}`;\n    },",
+    "hash": "85b4314d8f75ec54484bde6186a60caa87c080cacd84dd0f2fab8ba5ea25b36e",
+    "after": "    \"y2026q12\": function (demo) {\n      return `<div class=\"database-model-lab\"><div class=\"document-store\"><header>静态结构对照 · 文档与键值</header><pre>文档示例：\\n{ name: \"王宁\", score: 92 }\\n{ name: \"李悦\", tags: [\"AI\"], city: \"济宁\" }\\n\\n键值示例：\\nkey: session:01 → value: 王宁\\nkey: session:02 → value: 李悦</pre><div class=\"cluster-nodes\"><i>Node A</i><i>Node B</i><i>Node C</i></div></div><div class=\"model-selector\">${getItems(demo).map((item,i)=>`<button type=\"button\" data-sim-choice=\"${i}\">${escapeHTML(item.label)}</button>`).join('')}</div><div class=\"relational-store\"><header>关系数据库</header><table><tr><th>ID</th><th>姓名</th><th>班级ID</th></tr><tr><td>01</td><td>王宁</td><td>1</td></tr><tr><td>02</td><td>李悦</td><td>2</td></tr></table><small>固定结构 · 约束 · 事务 · SQL</small></div></div>${feedback('这是静态结构对照，不执行数据库查询。模型选择看结构、事务、查询与扩展需求；NoSQL不是“无SQL、无一致性、一定更快”。')}`;\n    },"
+  },
+  "searchHashes": {
+    "other": "4008b96126187a30d6684359b54a0fcac646916ec99bec455f0ab79c9b0c424f",
+    "after10Notes": "26ba694d3a260e2a3bbed2a7b577b2c0419164652bd7e987ff7c411688dc47c6",
+    "except5678910": "36240d346c48d8b1fd8d49dfb2518f5e7537c10b8766a1ae3237d98f42250625",
+    "except678910": "2c260df5fb43d69b60d3204746c284afeeb6bf4201a988af94cb06ecb5f7a7b2",
+    "except78910": "67f85d75a48d61edaa51033d82d817b521c138941729479d199da68d432701c9",
+    "except8910": "aa3863c64ffbb38a4a4fb5eef9da2da3e4e649b1940e8a8f8c26040bb2ed479f",
+    "except910": "7cf8d03054d733c277e77e311a40eb85db89880e2fff4cde52796524dbd6a4ed"
+  },
+  "pointCorrections": [
+    {
+      "id": "merged-21",
+      "index": 3,
+      "before": "WHERE只保留条件为真的行；NULL表示未知或缺失，判断它应写IS NULL或IS NOT NULL，不能写“= NULL”。",
+      "after": "WHERE只保留条件为真的行；NULL表示未知或缺失，判断它应写IS NULL或IS NOT NULL，不能用“= NULL”判断是否为空；通常这种比较得到未知，而不是语法错误。",
+      "reason": "NULL comparison UNKNOWN is not a syntax error; PostgreSQL comparison docs"
+    },
+    {
+      "id": "y2024q36",
+      "index": 3,
+      "before": "ALTER TABLE新增字段后，已有记录的新字段取默认值；未指定默认值时通常为NULL。增加非空字段时须考虑已有数据能否满足约束。",
+      "after": "ALTER TABLE新增字段时，已有记录该字段的取值由默认值、约束及DBMS规则共同决定。本卡示例增加可空列且未声明默认值，旧记录的新字段为NULL；不能把某一产品的默认值回填行为推广到所有DBMS。增加非空字段时须先确认已有数据能否满足约束。",
+      "reason": "SQL Server WITH VALUES differs from PostgreSQL added-column defaults"
+    }
+  ],
+  "retainedERHash": "3ba379d84697abc705dc70ac542c58755754c600ae96f9877adfea3cd306aede",
+  "updateDescription": {
+    "before": "选择修改值和WHERE条件；连续执行时在同一张表上继续修改。",
+    "after": "浏览器内教学沙箱，不连接数据库。选择修改值和WHERE条件，连续操作同一张示例表。",
+    "hash": "b2f5d622116fbbeefd0e02dd8a1d4247d80ce407d8fd0fa6b22027d97c11aa77"
+  }
+}

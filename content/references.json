@@ -1499,6 +1499,10 @@
     [
       "PostgreSQL：并、交、差及相容性",
       "https://www.postgresql.org/docs/current/queries-union.html"
+    ],
+    [
+      "Database System Concepts 7e, Chapter 2, authors slides",
+      "https://www.db-book.com/slides-dir/PDF-dir/ch2.pdf"
     ]
   ],
   "merged-21": [
@@ -1509,6 +1513,10 @@
     [
       "PostgreSQL：比较运算与NULL判断",
       "https://www.postgresql.org/docs/current/functions-comparison.html"
+    ],
+    [
+      "PostgreSQL 18 SELECT",
+      "https://www.postgresql.org/docs/current/sql-select.html"
     ]
   ],
   "y2023q14": [
@@ -1519,6 +1527,18 @@
     [
       "PostgreSQL：主键、唯一与外键约束",
       "https://www.postgresql.org/docs/current/ddl-constraints.html"
+    ],
+    [
+      "Silberschatz/Korth/Sudarshan Database System Concepts 7e Ch2作者课件",
+      "https://db-book.com/slides-dir/PDF-dir/ch2.pdf"
+    ],
+    [
+      "PostgreSQL 18 §5.5 Constraints",
+      "https://www.postgresql.org/docs/18/ddl-constraints.html"
+    ],
+    [
+      "Microsoft Using Access or Excel to manage your data",
+      "https://support.microsoft.com/en-us/excel/using-access-or-excel-to-manage-your-data"
     ]
   ],
   "y2024q36": [
@@ -1541,6 +1561,10 @@
     [
       "PostgreSQL：TRUNCATE的事务与约束行为",
       "https://www.postgresql.org/docs/current/sql-truncate.html"
+    ],
+    [
+      "Microsoft SQL Server ALTER TABLE table_constraint",
+      "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-table-constraint-transact-sql?view=sql-server-ver17"
     ]
   ],
   "y2021q33": [
@@ -2069,12 +2093,24 @@
     [
       "PostgreSQL：用外键及关联表实现多对多",
       "https://www.postgresql.org/docs/current/ddl-constraints.html"
+    ],
+    [
+      "厦门大学林子雨《数据库系统原理》2016版 第1章 绪论",
+      "https://dblab.xmu.edu.cn/wp-content/uploads/2016/02/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6-%E6%9E%97%E5%AD%90%E9%9B%A8-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%862016%E7%89%88-%E7%AC%AC1%E7%AB%A0-%E7%BB%AA%E8%AE%BA.pdf"
+    ],
+    [
+      "Database System Concepts 7e Ch6作者课件",
+      "https://db-book.com/slides-dir/PDF-dir/ch6.pdf"
     ]
   ],
   "y2025q11": [
     [
       "AWS：概念、逻辑与物理数据模型的职责",
       "https://aws.amazon.com/compare/the-difference-between-logical-and-physical-data-model/"
+    ],
+    [
+      "厦门大学林子雨 第7章 数据库设计",
+      "https://dblab.xmu.edu.cn/wp-content/uploads/2016/02/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6-%E6%9E%97%E5%AD%90%E9%9B%A8-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%862016%E7%89%88-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.pdf"
     ]
   ],
   "y2023q15": [
@@ -3311,6 +3347,68 @@
     [
       "NIST大数据工作组框架：数据、分析与模型语境",
       "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1500-1r2.pdf"
+    ]
+  ],
+  "y2020q13": [
+    [
+      "厦门大学林子雨《数据库系统原理》2016版 第1章 绪论",
+      "https://dblab.xmu.edu.cn/wp-content/uploads/2016/02/%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6-%E6%9E%97%E5%AD%90%E9%9B%A8-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%862016%E7%89%88-%E7%AC%AC1%E7%AB%A0-%E7%BB%AA%E8%AE%BA.pdf"
+    ],
+    [
+      "Oracle Database 21 Concepts: Introduction",
+      "https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/introduction-to-oracle-database.html"
+    ]
+  ],
+  "y2025q42": [
+    [
+      "Oracle Concepts: Duties of Database Administrators",
+      "https://docs.oracle.com/cd/E11882_01/server.112/e40540/cncptdba.htm"
+    ]
+  ],
+  "y2026q12": [
+    [
+      "Cornell Virtual Workshop: NoSQL databases",
+      "https://cvw.cac.cornell.edu/RelationalDBs/usingDBs/nosql"
+    ],
+    [
+      "Apache HBase Data Model",
+      "https://hbase.apache.org/docs/datamodel/"
+    ],
+    [
+      "MongoDB Schema Validation",
+      "https://www.mongodb.com/docs/manual/core/schema-validation/"
+    ],
+    [
+      "Neo4j Graph database concepts",
+      "https://neo4j.com/docs/getting-started/appendix/graphdb-concepts/"
+    ],
+    [
+      "Microsoft SQL Server：列存储索引的定义（关系数据的物理列存）",
+      "https://learn.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver17"
+    ]
+  ],
+  "y2024q47": [
+    [
+      "PostgreSQL 18 CREATE TABLE",
+      "https://www.postgresql.org/docs/current/sql-createtable.html"
+    ],
+    [
+      "PostgreSQL 18 Character Types",
+      "https://www.postgresql.org/docs/current/datatype-character.html"
+    ],
+    [
+      "Microsoft SQL Server Add Columns to a Table",
+      "https://learn.microsoft.com/en-us/sql/relational-databases/tables/add-columns-to-a-table-database-engine?view=sql-server-ver17"
+    ]
+  ],
+  "y2025q12": [
+    [
+      "PostgreSQL 18 INSERT",
+      "https://www.postgresql.org/docs/current/sql-insert.html"
+    ],
+    [
+      "PostgreSQL 18 Lexical Structure",
+      "https://www.postgresql.org/docs/current/sql-syntax-lexical.html"
     ]
   ]
 }
