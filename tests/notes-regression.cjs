@@ -7,6 +7,7 @@ const {JSDOM}=require('jsdom');
 const root=path.resolve(__dirname,'..');
 const scriptsFor=chapter=>[...fs.readFileSync(path.join(root,`chapter${chapter}.html`),'utf8').matchAll(/<script src="\.\/([^"?]+)/g)].map(m=>m[1]);
 const allNotes=()=>Array.from({length:11},(_,i)=>JSON.parse(fs.readFileSync(path.join(root,`content/chapter${i+1}.json`),'utf8'))).flat();
+const {base:siteV70,historicalFile,historicalNote,historicalSearch}=require('./v71-protection.cjs');
 const releaseVersion=JSON.parse(fs.readFileSync(path.join(root,'site.config.json'),'utf8')).version;
 // v62 authorizes card/display order, not changing historical point identities.
 // Project ONLY explicitly allowed metadata to v61; old point text is always
@@ -40,7 +41,7 @@ const v70Transferred=file=>['content/chapter11.json','src/labs/chapter11/algorit
 const reviewedChapterFile=file=>/^content\/chapter(?:[1-9]|10|11)\.json$/.test(file);
 const digest=value=>require('node:crypto').createHash('sha256').update(value).digest('hex');
 function projectV61(note){
- const row=v61Rows.get(note.id),old=structuredClone(note);if(!row)return old;
+ const row=v61Rows.get(note.id),old=historicalNote(note);if(!row)return old;
  for(const [field,change] of Object.entries(row.displayChanges)){if(change.had)old[field]=structuredClone(change.before);else delete old[field];}
  old.points=old.points.slice(0,row.count);return old;
 }
@@ -1204,7 +1205,7 @@ test('v55 protects v54 semantic links and all other Word cards while fully rende
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/word-v54-protection.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(JSON.stringify(x)).digest('hex'),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter3.json'),'utf8')),e=env(3);
  for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.ok(n);assert.equal(hash([n.id,n.points.slice(0,row.count),n.sources,n.keys]),row.prefix,row.id);if(row.unchanged){const historical=projectV61(n);if(n.id==='syllabus-office-exchange'){assert.equal(historical.pointGroups[0].title,'文件格式与跨软件交换');historical.pointGroups[0].title='已有知识';}assert.equal(hash(historical),row.unchanged,row.id);}else for(let i=0;i<n.points.length;i++){const p=e.d.getElementById(`${n.id}--point-${i}`);assert.ok(p);assert.equal(p.closest('details'),null);assert.equal([...p.querySelectorAll(`[data-source-field="point-${i}"]`)].map(x=>x.textContent).join(''),n.points[i]);}}
  // v62 adds full v61 note hashes below; only explicitly approved display fields are projected.
- for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex'),digest,file);e.dom.window.close();
+ for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(require('node:crypto').createHash('sha256').update(historicalFile(file)).digest('hex'),digest,file);e.dom.window.close();
 });
 test('v55 protection and print search hits reach distinct canonical paragraphs without losing an open model',()=>{
  const e=env(3),c=open(e,'y2022q71'),lab=c.querySelector('[data-lab]'),index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'),'utf8'));
@@ -1240,7 +1241,7 @@ test('v57 preserves every Excel historical point and all ten other canonical cha
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/excel-v56-protection.json'),'utf8')),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter4.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');
  assert.deepEqual(notes.map(n=>n.id).sort(),expected.notes.map(n=>n.id).sort());
  for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.equal(hash(JSON.stringify([n.id,n.points.slice(0,row.count),n.sources,n.keys??null])),row.prefix,row.id);}
- for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+ for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(historicalFile(file)),digest,file);
  const e=env();for(const n of notes)for(let i=0;i<n.points.length;i++){const p=e.d.getElementById(`${n.id}--point-${i}`);assert.ok(p);assert.equal(p.closest('details'),null);const decoded=e.d.createElement('textarea');decoded.innerHTML=n.points[i];assert.equal([...p.querySelectorAll(`[data-source-field="point-${i}"]`)].map(el=>el.textContent).join(''),decoded.value);}e.dom.window.close();
 });
 test('v57 input stores values separately from display and cancels pending edits',()=>{
@@ -1328,7 +1329,7 @@ test('v58 preserves v57 points sources keys and every out of scope chapter',()=>
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/excel-v57-protection.json'),'utf8')),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter4.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');
  assert.deepEqual(notes.map(n=>n.id).sort(),expected.notes.map(n=>n.id).sort());
  for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.equal(hash(JSON.stringify([n.id,n.points.slice(0,row.count),n.sources,n.keys??null])),row.prefix,row.id);}
- for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+ for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(historicalFile(file)),digest,file);
 });
 
 test('v59 conditional ranges include endpoints and top values include tied cutoffs',()=>{
@@ -1369,7 +1370,7 @@ test('v59 pivot source edits commit separately from refresh and reject invalid d
 test('v59 keeps all historical Excel identities and protects every out-of-scope note and chapter',()=>{
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/excel-v58-protection.json'),'utf8')),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter4.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');
  assert.deepEqual(notes.map(n=>n.id).sort(),expected.notes.map(n=>n.id).sort());for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.equal(hash(JSON.stringify([n.id,n.points.slice(0,row.count),n.sources,n.keys??null])),row.prefix,row.id);if(row.unchanged&&n.section!=='4.6'){const old=projectV61(n);if(n.id==='y2020q8')old.related=old.related.slice(0,2);assert.equal(hash(JSON.stringify(old)),row.unchanged,row.id);}}
- for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+ for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(historicalFile(file)),digest,file);
 });
 test('v59 search distinguishes new subtopics and navigation retains the live analysis state',()=>{
  const e=env(4),index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'),'utf8')),c=open(e,'y2024q67'),lab=c.querySelector('[data-lab]');click(c,'pick','销量');click(c,'place','value');
@@ -1423,7 +1424,7 @@ test('v60 sparkline source rows map to destination cells and cancelled ranges ne
 test('v60 preserves v59 identities all old paragraphs and every unmodified note and chapter',()=>{
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/excel-v59-protection.json'),'utf8')),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter4.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');
  assert.deepEqual(notes.map(n=>n.id).sort(),expected.notes.map(n=>n.id).sort());for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.equal(hash(JSON.stringify([n.id,n.points.slice(0,row.count),n.sources,n.keys??null])),row.prefix,row.id);if(row.unchanged){const old=projectV61(n);if(n.id==='y2020q8'){assert.equal(n.related[2].id,'syllabus-office-exchange');old.related=old.related.slice(0,2);}assert.equal(hash(JSON.stringify(old)),row.unchanged,row.id);}}
- for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+ for(const [file,digest] of Object.entries(expected.otherChapters))if(!reviewedChapterFile(file))assert.equal(hash(historicalFile(file)),digest,file);
 });
 test('v60 search locates new chart and print paragraphs without losing the active chart on return',()=>{
  const e=env(),index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'),'utf8')),c=open(e,'y2020q59'),lab=c.querySelector('[data-lab]');click(c,'switch');change(e,c,'type','line');
@@ -1435,7 +1436,7 @@ test('v60 search locates new chart and print paragraphs without losing the activ
 test('v61 preserves all old Windows points and identities plus 2.3 and ten other chapters',()=>{
  const expected=JSON.parse(fs.readFileSync(path.join(root,'tests/windows-v60-protection.json'),'utf8')),notes=JSON.parse(fs.readFileSync(path.join(root,'content/chapter2.json'),'utf8')),hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');
  assert.deepEqual(notes.map(n=>n.id).sort(),expected.notes.map(n=>n.id).sort());for(const row of expected.notes){const n=notes.find(n=>n.id===row.id);assert.equal(hash(JSON.stringify([n.id,n.points.slice(0,row.count),n.sources,n.keys??null])),row.prefix,row.id);if(row.unchanged)assert.equal(hash(JSON.stringify(projectV61(n))),row.unchanged,row.id);if(n.section==='2.3')assert.ok(row.unchanged);}
- for(const [file,digest] of Object.entries(expected.otherFiles))if(!reviewedChapterFile(file))assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);
+ for(const [file,digest] of Object.entries(expected.otherFiles))if(!reviewedChapterFile(file))assert.equal(hash(historicalFile(file)),digest,file);
 });
 test('v61 minimize retains text and restores the preceding maximized state',()=>{
  const e=env(2),c=open(e,'y2020q2');change(e,c,'textA','尚未保存的输入');click(c,'size','A');assert.equal(c.querySelector('[data-window="A"]').dataset.state,'max');assert.equal(c.querySelector('[data-window="A"]').style.width,'100%');click(c,'min','A');assert.equal(c.querySelector('[data-window="A"]'),null);assert.match(c.textContent,/最小化（仍运行）/);click(c,'activate','A');assert.equal(c.querySelector('[data-window="A"]').dataset.state,'max');assert.equal(c.querySelector('[data-field="textA"]').value,'尚未保存的输入');click(c,'size','A');assert.equal(c.querySelector('[data-window="A"]').style.width,'82%');e.dom.window.close();
@@ -1472,7 +1473,7 @@ test('v62 preserves 135 complete historical note identities and 977 paragraph me
  for(let chapter=1;chapter<=4;chapter++){
   const notes=JSON.parse(fs.readFileSync(path.join(root,`content/chapter${chapter}.json`))),rows=v61Protection.chapters[chapter];
   assert.equal(new Set(notes.map(n=>n.id)).size,notes.length);assert.deepEqual(notes.map(n=>n.id).sort(),rows.map(n=>n.id).sort());
-  for(const row of rows){const n=notes.find(n=>n.id===row.id);assert.equal(n.points.length,row.count+row.appendCount,row.id);for(const [field,change] of Object.entries(row.displayChanges))assert.equal(hash(n[field]),change.afterHash,row.id+'/'+field);assert.equal(hash(projectV61(n)),row.hash,row.id);count++;points+=row.count;added+=row.appendCount;}
+  for(const row of rows){const n=notes.find(n=>n.id===row.id);assert.equal(historicalNote(n).points.length,row.count+row.appendCount,row.id);for(const [field,change] of Object.entries(row.displayChanges))assert.equal(hash(historicalNote(n)[field]),change.afterHash,row.id+'/'+field);assert.equal(hash(projectV61(n)),row.hash,row.id);count++;points+=row.count;added+=row.appendCount;}
  }
  assert.equal(count,135);assert.equal(points,977);assert.equal(added,10);
 });
@@ -1522,8 +1523,8 @@ test('v62 old and new deep links search focus and expanded return preserve four 
  }
 });
 test('v62 preserves later chapters models references and search records beyond its four chapter scope',()=>{
- const hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');for(const [file,digest] of Object.entries(v61Protection.protectedFiles)){if(v70Transferred(file)||v69Transferred(file)||v68Transferred(file)||['content/chapter5.json','src/labs/chapter5/editing.js','src/labs/shared/syllabus.js','src/labs/manifest.json','content/chapter6.json','src/labs/chapter6/network.js','content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))continue;assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,file);}
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==11);assert.equal(hash(JSON.stringify(index)),thinkingV69.searchHashes.other);
+ const hash=x=>require('node:crypto').createHash('sha256').update(x).digest('hex');for(const [file,digest] of Object.entries(v61Protection.protectedFiles)){if(v70Transferred(file)||v69Transferred(file)||v68Transferred(file)||['content/chapter5.json','src/labs/chapter5/editing.js','src/labs/shared/syllabus.js','src/labs/manifest.json','content/chapter6.json','src/labs/chapter6/network.js','content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))continue;assert.equal(hash(historicalFile(file)),digest,file);}
+ const index=historicalSearch().filter(r=>r.chapter!==11);assert.equal(hash(JSON.stringify(index)),thinkingV69.searchHashes.other);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const id of Object.keys(v61Protection.referenceRows))assert.ok(refs[id],id);for(const id of Object.keys(refs))assert.ok(v61Protection.referenceRows[id]||pptIds.has(id)||networkIds.has(id)||multimediaIds.has(id)||securityIds.has(id)||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),id);for(const [id,row] of Object.entries(v61Protection.referenceRows)){assert.equal(hash(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!pptIds.has(id)&&!networkIds.has(id)&&!multimediaIds.has(id)&&!securityIds.has(id)&&!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count+row.appendCount,id);}
  for(let chapter=5;chapter<=11;chapter++){const e=env(chapter),canonical=JSON.parse(fs.readFileSync(path.join(root,`content/chapter${chapter}.json`))),sections=e.w.NOTES.chapters.find(c=>c.number===chapter).sections,expected=Array.from(sections).flatMap(s=>canonical.filter(n=>n.section===s.id).map(n=>n.id));assert.deepEqual([...e.d.querySelectorAll('#notes-root article')].map(n=>n.id),expected);assert.deepEqual([...e.d.querySelectorAll('#note-list .note-list > li > a')].map(a=>a.hash.slice(1)),expected);e.dom.window.close();}
 });
@@ -1592,11 +1593,11 @@ test('v64 default body directory and subtopics share a prerequisite-respecting o
  e.dom.window.close();
 });
 test('v64 formal v63 protection freezes other chapters search and the visual system',()=>{
- for(const [file,hash] of Object.entries(pptV63.protectedFiles)){if(v70Transferred(file)||v69Transferred(file)||v68Transferred(file)||['content/chapter6.json','src/labs/chapter6/network.js','content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))continue;assert.equal(digest(fs.readFileSync(path.join(root,file))),hash,file);}
- const app=fs.readFileSync(path.join(root,'notes-app.js'),'utf8'),fix=pptV63.notesApp;assert.equal(app.split(fix.to).length,2);assert.ok(!app.includes(fix.from));assert.equal(digest(app.replace(fix.to,fix.from)),fix.hash);
+ for(const [file,hash] of Object.entries(pptV63.protectedFiles)){if(v70Transferred(file)||v69Transferred(file)||v68Transferred(file)||['content/chapter6.json','src/labs/chapter6/network.js','content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))continue;assert.equal(digest(historicalFile(file)),hash,file);}
+ const app=historicalFile('notes-app.js').toString(),fix=pptV63.notesApp;assert.equal(app.split(fix.to).length,2);assert.ok(!app.includes(fix.from));assert.equal(digest(app.replace(fix.to,fix.from)),fix.hash);
  const shared=fs.readFileSync(path.join(root,'src/labs/shared/syllabus.js'),'utf8').replace(frontierV67.sharedTextCorrection.after,frontierV67.sharedTextCorrection.before);assert.ok(!shared.includes("'syllabus-ppt-output':"));const anchor="    'syllabus-quantum-basics':";assert.equal(shared.split(anchor).length,2);assert.equal(digest(shared.replace(anchor,pptV63.sharedSyllabusRemovedBlock+anchor)),pptV63.sharedSyllabusHash);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(pptV63.manifest);assert.deepEqual(manifest.chapters[5].ids,base.chapters[5].ids);assert.equal(manifest.chapters[5].models,20);delete manifest.chapters[5];delete base.chapters[5];delete manifest.chapters[6];delete base.chapters[6];delete manifest.chapters[7];delete base.chapters[7];delete manifest.chapters[8];delete base.chapters[8];delete manifest.chapters[9];delete base.chapters[9];delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==5&&r.chapter!==6&&r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except567891011);
+ const index=historicalSearch().filter(r=>r.chapter!==5&&r.chapter!==6&&r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except567891011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));
  for(const [id,row] of Object.entries(pptV63.referenceRows)){assert.ok(refs[id],id);assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!pptIds.has(id)&&!networkIds.has(id)&&!multimediaIds.has(id)&&!securityIds.has(id)&&!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}
  for(const id of Object.keys(refs))assert.ok(pptV63.referenceRows[id]||pptIds.has(id)||networkIds.has(id)||multimediaIds.has(id)||securityIds.has(id)||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),'reference belongs to authorized Chapter5/6 card: '+id);
@@ -1667,9 +1668,9 @@ test('v65 default content directory and subtopics follow prerequisites rather th
  for(let i=1;i<=5;i++)assert.ok(e.d.querySelector(`#section-6-${i} article`));e.dom.window.close();
 });
 test('v65 freezes other ten chapters labs shared UX and non-network search records at formal v64',()=>{
- for(const [file,hash] of Object.entries(networkV64.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file)&&!v68Transferred(file)&&!['content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))assert.equal(digest(fs.readFileSync(path.join(root,file))),hash,file);
+ for(const [file,hash] of Object.entries(networkV64.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file)&&!v68Transferred(file)&&!['content/chapter7.json','content/chapter8.json','src/labs/chapter8/security.js'].includes(file))assert.equal(digest(historicalFile(file)),hash,file);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(networkV64.manifest);delete manifest.chapters[6];delete base.chapters[6];delete manifest.chapters[7];delete base.chapters[7];delete manifest.chapters[8];delete base.chapters[8];delete manifest.chapters[9];delete base.chapters[9];delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==6&&r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except67891011);
+ const index=historicalSearch().filter(r=>r.chapter!==6&&r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except67891011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row] of Object.entries(networkV64.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!networkIds.has(id)&&!multimediaIds.has(id)&&!securityIds.has(id)&&!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(networkV64.referenceRows[id]||networkIds.has(id)||multimediaIds.has(id)||securityIds.has(id)||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),id);
 });
 test('v65 topology failure changes reachability and scope selection does not repair a broken link',()=>{
@@ -1736,9 +1737,9 @@ test('v66 teaching dependencies hold in the same body directory and subtopic ord
  for(let i=1;i<=3;i++)assert.ok(e.d.querySelector(`#section-7-${i} article`));e.dom.window.close();
 });
 test('v66 freezes other ten chapters existing models references and v63 visual behavior',()=>{
- for(const [file,hash] of Object.entries(multimediaV65.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file)&&!v68Transferred(file)&&!['content/chapter8.json','src/labs/chapter8/security.js'].includes(file))assert.equal(digest(fs.readFileSync(path.join(root,file))),hash,file);
+ for(const [file,hash] of Object.entries(multimediaV65.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file)&&!v68Transferred(file)&&!['content/chapter8.json','src/labs/chapter8/security.js'].includes(file))assert.equal(digest(historicalFile(file)),hash,file);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(multimediaV65.manifest);assert.deepEqual(manifest.chapters[7].ids.slice(0,base.chapters[7].ids.length),base.chapters[7].ids);delete manifest.chapters[7];delete base.chapters[7];delete manifest.chapters[8];delete base.chapters[8];delete manifest.chapters[9];delete base.chapters[9];delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except7891011);
+ const index=historicalSearch().filter(r=>r.chapter!==7&&r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except7891011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row] of Object.entries(multimediaV65.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!multimediaIds.has(id)&&!securityIds.has(id)&&!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(multimediaV65.referenceRows[id]||multimediaIds.has(id)||securityIds.has(id)||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),id);
 });
 test('v66 independently computed image quantities distinguish pixel count alpha and PPI',()=>{
@@ -1802,12 +1803,12 @@ test('v67 objectives precede mechanisms and body directory subtopics share the t
 test('v67 formal v66 protection freezes other ten chapters labs search references and the v63 shell',()=>{
  for(const [file,expected]of Object.entries(securityV66.protectedFiles)){
   if(v70Transferred(file)||v69Transferred(file)||v68Transferred(file))continue;
-  const fix=securityV66.modelTextCorrection;let bytes=fs.readFileSync(path.join(root,file));
+  const fix=securityV66.modelTextCorrection;let bytes=historicalFile(file);
   if(file===fix.file){let text=bytes.toString();assert.equal(text.split(fix.after).length,2);assert.ok(!text.includes(fix.before));bytes=text.replace(fix.after,fix.before);}
   assert.equal(digest(bytes),expected,file);
  }
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(securityV66.manifest);assert.deepEqual(manifest.chapters[8].ids.slice(0,base.chapters[8].ids.length),base.chapters[8].ids);delete manifest.chapters[8];delete base.chapters[8];delete manifest.chapters[9];delete base.chapters[9];delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except891011);
+ const index=historicalSearch().filter(r=>r.chapter!==8&&r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except891011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row]of Object.entries(securityV66.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!securityIds.has(id)&&!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(securityV66.referenceRows[id]||securityIds.has(id)||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),id);
 });
 test('v67 standard user credentials gate elevation and permission alone does not commit a clock change',()=>{
@@ -1877,9 +1878,9 @@ test('v68 body directory and subtopics establish concepts before mechanisms in a
  assert.equal(e.d.querySelector('#merged-19--point-10 a').hash,'#syllabus-mobile-communication');e.dom.window.close();
 });
 test('v68 formal v67 protection freezes other ten chapters all old models search and shared UX',()=>{
- for(const [file,expected]of Object.entries(frontierV67.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file))assert.equal(digest(fs.readFileSync(path.join(root,file))),expected,file);
+ for(const [file,expected]of Object.entries(frontierV67.protectedFiles))if(!v70Transferred(file)&&!v69Transferred(file))assert.equal(digest(historicalFile(file)),expected,file);
  const fix=frontierV67.sharedTextCorrection,shared=fs.readFileSync(path.join(root,fix.file),'utf8');assert.equal(shared.split(fix.after).length,2);assert.ok(!shared.includes(fix.before));assert.equal(digest(shared.replace(fix.after,fix.before)),fix.hash);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except91011);
+ const index=historicalSearch().filter(r=>r.chapter!==9&&r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except91011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row]of Object.entries(frontierV67.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!frontierIds.has(id)&&!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(frontierV67.referenceRows[id]||frontierIds.has(id)||databaseIds.has(id)||thinkingIds.has(id),id);
  const legacy=JSON.parse(fs.readFileSync(path.join(root,'content/legacy-demos.json'))),removed=['y2026q39','merged-19','y2025q24'];assert.deepEqual(Object.keys(legacy),Object.keys(frontierV67.legacyRows).filter(id=>!removed.includes(id)));for(const [id,v]of Object.entries(legacy))assert.equal(digest(JSON.stringify(v)),frontierV67.legacyRows[id],id);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(frontierV67.manifest);assert.deepEqual(manifest.chapters[9].ids.slice(0,2),base.chapters[9].ids);delete manifest.chapters[9];delete base.chapters[9];delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
@@ -1954,11 +1955,11 @@ test('v69 actual body directory and subtopics put relational foundations before 
  e.dom.window.close();
 });
 test('v69 formal v68 protection freezes Chapters1-9 and11 old search manifest and v63 UX outside one scoped NoSQL scene',()=>{
- for(const [file,expected]of Object.entries(databaseV68.protectedFiles))if(!v70Transferred(file))assert.equal(digest(fs.readFileSync(path.join(root,file))),expected,file);
- const fix=databaseV68.sharedScene,shared=fs.readFileSync(path.join(root,fix.file),'utf8');assert.equal(shared.split(fix.after).length,2);assert.equal(digest(shared.replace(fix.after,fix.before)),fix.hash);
+ for(const [file,expected]of Object.entries(databaseV68.protectedFiles))if(!v70Transferred(file))assert.equal(digest(historicalFile(file)),expected,file);
+ const fix=databaseV68.sharedScene,shared=historicalFile(fix.file).toString();assert.equal(shared.split(fix.after).length,2);assert.equal(digest(shared.replace(fix.after,fix.before)),fix.hash);
  const update=fs.readFileSync(path.join(root,'src/labs/chapter10/update.js'),'utf8'),u=databaseV68.updateDescription;assert.equal(digest(update.replace(u.after,u.before)),u.hash,'UPDATE logic retained');
  const db=fs.readFileSync(path.join(root,'src/labs/chapter10/database.js'),'utf8'),start=db.indexOf("register(['y2020q14']"),end=db.indexOf('\n})();',start);assert.equal(digest(db.slice(start,end)),databaseV68.retainedERHash);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except1011);
+ const index=historicalSearch().filter(r=>r.chapter!==10&&r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.except1011);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row]of Object.entries(databaseV68.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!databaseIds.has(id)&&!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(databaseV68.referenceRows[id]||databaseIds.has(id)||thinkingIds.has(id),id);
  const legacy=JSON.parse(fs.readFileSync(path.join(root,'content/legacy-demos.json')));assert.deepEqual(Object.keys(legacy),Object.keys(databaseV68.legacyRows).filter(id=>id!=='y2025q24'));for(const [id,v]of Object.entries(legacy))assert.equal(digest(JSON.stringify(v)),databaseV68.legacyRows[id],id);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(databaseV68.manifest);delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
@@ -2034,8 +2035,8 @@ test('v70 actual body directory and subtopics establish algorithm and control pr
  for(const [id,a,b]of [['y2025q4',7,4],['y2026q42',4,5],['y2026q6',5,4],['y2022q33',5,3],['y2026q5',3,5],['y2025q24',0,4],['y2025q24',4,3],['syllabus-algorithm-strategies',4,5]])assert.ok(order(id).indexOf(a)<order(id).indexOf(b),id);e.dom.window.close();
 });
 test('v70 formal v69 protection freezes Chapters1-10 search all shared UX and other model registrations',()=>{
- for(const [file,expected]of Object.entries(thinkingV69.protectedFiles))assert.equal(digest(fs.readFileSync(path.join(root,file))),expected,file);
- const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))).filter(r=>r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.other);
+ for(const [file,expected]of Object.entries(thinkingV69.protectedFiles))assert.equal(digest(historicalFile(file)),expected,file);
+ const index=historicalSearch().filter(r=>r.chapter!==11);assert.equal(digest(JSON.stringify(index)),thinkingV69.searchHashes.other);
  const refs=JSON.parse(fs.readFileSync(path.join(root,'content/references.json')));for(const [id,row]of Object.entries(thinkingV69.referenceRows)){assert.equal(digest(JSON.stringify(refs[id].slice(0,row.count))),row.hash,id);if(!thinkingIds.has(id))assert.equal(refs[id].length,row.count,id);}for(const id of Object.keys(refs))assert.ok(thinkingV69.referenceRows[id]||thinkingIds.has(id),id);
  const legacy=JSON.parse(fs.readFileSync(path.join(root,'content/legacy-demos.json')));assert.deepEqual(Object.keys(legacy),Object.keys(thinkingV69.legacyRows).filter(id=>id!=='y2025q24'));for(const [id,v]of Object.entries(legacy))assert.equal(digest(JSON.stringify(v)),thinkingV69.legacyRows[id],id);
  const manifest=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))),base=structuredClone(thinkingV69.manifest);assert.deepEqual(manifest.chapters[11].ids.slice(0,8),base.chapters[11].ids);assert.deepEqual(manifest.chapters[11].files.slice(0,1),base.chapters[11].files);delete manifest.chapters[11];delete base.chapters[11];assert.deepEqual(manifest,base);
@@ -2113,4 +2114,94 @@ test('v70 all ten registered models use shared controls and local table scrollin
  const e=env(11),m=JSON.parse(fs.readFileSync(path.join(root,'src/labs/manifest.json'))).chapters[11];assert.equal(m.models,10);assert.equal(new Set(m.ids).size,10);
  for(const id of m.ids){const c=open(e,id);assert.equal(e.w.NOTE_SIMULATIONS.demos[id]?.kind,'lab',id);assert.equal(c.querySelectorAll('style').length,0);for(const t of c.querySelectorAll('.note-lab table'))assert.ok(t.closest('.lab-table-scroll'),id);assert.ok(c.querySelector('[data-sim-reset]'));assert.ok(c.querySelector('[data-sim-expand]'));}
  const c=e.d.getElementById('y2022q33');change(e,c,'raw',Array(30).fill(999).join(','));click(c,'loadData');click(c,'build');for(const t of c.querySelectorAll('.note-lab table'))assert.ok(t.closest('.lab-table-scroll'));e.dom.window.close();
+});
+
+test('v71 exact corrections preserve v70 card order all 1698 point meanings and every remaining product byte',()=>{
+ for(const [file,expected]of Object.entries(siteV70.protectedFiles))assert.equal(digest(historicalFile(file)),expected,file);
+ for(let ch=1;ch<=11;ch++){
+  const notes=JSON.parse(fs.readFileSync(path.join(root,`content/chapter${ch}.json`))),rows=siteV70.chapters[ch];
+  assert.deepEqual(notes.map(n=>n.id),rows.map(n=>n.id));
+  for(const [i,n]of notes.entries()){
+   assert.equal(digest(JSON.stringify(historicalNote(n))),rows[i].hash,n.id);
+   assert.deepEqual(historicalNote(n).points.map(digest),rows[i].pointHashes,n.id+' point identities');
+  }
+ }
+ assert.equal(digest(JSON.stringify(historicalSearch())),siteV70.searchHash);
+});
+test('v71 comparison summaries retain formula-criteria and regional-date conditions plus the exact exam object',()=>{
+ const topics=JSON.parse(fs.readFileSync(path.join(root,'content/comparisons.json'))),notes=allNotes();
+ const criteria=topics.find(t=>t.id==='cmp-table-filter-summary').rows[0];assert.match(criteria.cells[1],/普通字段条件/);assert.match(criteria.cells[1],/公式条件.*留空.*不同/);assert.match(notes.find(n=>n.id==='y2020q9').points[8],/公式条件/);
+ assert.match(topics.find(t=>t.id==='cmp-excel-type-display').rows[2].cells[2],/区域设置/);
+ assert.equal(notes.find(n=>n.id==='y2024q58').trigger,'题目要求滚动订单数据时保持第2行可见。');
+});
+test('v71 global and chapter searches share static fields, specific anchors and unchanged model state',()=>{
+ const index=JSON.parse(fs.readFileSync(path.join(root,'generated/search-index.json'))),terms=['剪贴板','删除','对象','权限','属性','主键','采样','HTTPS','算法','SQL SELECT','bit Byte','PCM','UAC','VLOOKUP','$A$1','C++','<v71-probe>'];
+ for(let ch=1;ch<=11;ch++){
+  const e=env(ch),input=e.d.getElementById('search-input');
+  assert.deepEqual(JSON.parse(JSON.stringify(e.w.NOTE_SEARCH_ENTRIES)),index.filter(r=>r.chapter===ch));
+  for(const q of terms){input.value=q;input.dispatchEvent(new e.w.Event('input',{bubbles:true}));const expected=e.w.NOTE_SEARCH.search(index,q).filter(r=>r.chapter===ch).map(r=>r.id).sort();assert.deepEqual([...e.d.querySelectorAll('.note-item:not(.hidden)')].map(n=>n.id).sort(),expected,q);}
+  for(const n of e.w.NOTES.notes){
+   for(const group of n.pointGroups||[]){const hit=e.w.NOTE_SEARCH.search(index,group.title).find(r=>r.id===n.id);assert.ok(hit?.matches.some(f=>group.indices.some(i=>f.anchor===`${n.id}--point-${i}`)),n.id+' '+group.title);}
+   const demo=e.w.NOTE_SIMULATIONS.demos[n.id],hit=e.w.NOTE_SEARCH.search(index,demo.title).find(r=>r.id===n.id);assert.ok(hit?.matches.some(f=>f.anchor===n.id+'--demo'));assert.ok(e.d.getElementById(n.id+'--demo').querySelector('.simulation-toggle'));
+  }
+  e.d.getElementById('clear-search').click();assert.deepEqual([...e.d.querySelectorAll('.note-item:not(.hidden)')].map(n=>n.id),Array.from(e.w.NOTES.notes,n=>n.id));assert.equal(e.d.querySelector('v71-probe'),null);e.dom.window.close();
+ }
+ const labelEnv=env(2),labelHit=labelEnv.w.NOTE_SEARCH.search(index,'压缩').find(n=>n.id==='merged-4').matches.find(f=>f.anchor==='merged-4--point-12');assert.ok(labelHit);assert.ok(!labelHit.text.includes('压缩'));assert.match(labelEnv.w.NOTE_SEARCH.fieldSnippet(labelHit,'压缩'),/^命中入口：高级压缩与加密的前提。/);assert.match(labelEnv.w.NOTE_SEARCH.fieldSnippet(labelHit,'压缩 EFS'),/^命中入口：高级压缩与加密的前提。/);labelEnv.dom.window.close();
+ const e=env(11),c=open(e,'y2022q43');change(e,c,'n','5');click(c,'step');const lab=c.querySelector('[data-lab]'),before=lab.textContent;const q=e.d.getElementById('search-input');q.value='数据库不存在于此章';q.dispatchEvent(new e.w.Event('input',{bubbles:true}));e.d.getElementById('clear-search').click();assert.equal(c.querySelector('[data-lab]'),lab);assert.equal(lab.textContent,before);e.dom.window.close();
+});
+test('v71 user style names and lookup keys render literally after commit cancel and reset',()=>{
+ for(const [ch,id,action,key,apply,cancel,result]of [[3,'y2023q52','create','draftName','apply','cancel','.lab-output'],[4,'y2020q57','editLookup','draftKey','applyLookup','cancelLookup','table tbody td:nth-child(2)']]){
+  const e=env(ch),c=open(e,id);
+  for(const text of ['<v71-probe>MARK</v71-probe>','&lt;b&gt; & "字"']){
+   click(c,action);change(e,c,key,text);click(c,apply);assert.equal(c.querySelector('v71-probe'),null);assert.ok([...c.querySelectorAll(result)].some(el=>el.textContent.includes(text)),'literal '+text);
+  }
+  click(c,action);change(e,c,key,'<b>取消的草稿</b>');click(c,cancel);assert.equal(c.querySelector('b')?.textContent==='取消的草稿',false);assert.ok(!c.textContent.includes('取消的草稿'));
+  c.querySelector('[data-sim-reset]').click();assert.ok(!c.textContent.includes('MARK'));assert.ok(!c.textContent.includes('&lt;b&gt;'));e.dom.window.close();
+ }
+});
+test('v71 legacy long press cannot mutate reset collapsed hidden or disconnected scenes',()=>{
+ const e=env(2),article=open(e,'y2026q32'),c=article.querySelector('.reality-demo'),tasks=new Map();let serial=0;
+ e.w.setTimeout=(fn,ms)=>{const id=++serial;tasks.set(id,{fn,ms});return id;};e.w.clearTimeout=id=>tasks.delete(id);
+ const pointer=(target,type,extra={})=>{const event=new e.w.MouseEvent(type,{bubbles:true,button:0,clientX:20,clientY:20,...extra});Object.defineProperty(event,'pointerId',{value:1});target.dispatchEvent(event);};
+ for(const operation of ['reset','collapse','hide','cancel','lostcapture','blur','disconnect','move']){
+  c.querySelector('[data-sim-reset]').click();const key=c.querySelector('[data-long-press-choice]');pointer(key,'pointerdown');const pending=[...tasks].filter(([,t])=>t.ms===700);assert.equal(pending.length,1);
+  if(operation==='reset')c.querySelector('[data-sim-reset]').click();
+  if(operation==='collapse')c.querySelector('.simulation-toggle').click();
+  if(operation==='hide'){const input=e.d.getElementById('search-input');input.value='不存在的检索词';input.dispatchEvent(new e.w.Event('input',{bubbles:true}));}
+  if(operation==='cancel')pointer(key,'pointercancel');
+  if(operation==='lostcapture')pointer(key,'lostpointercapture');
+  if(operation==='blur')e.w.dispatchEvent(new e.w.Event('blur'));
+  if(operation==='disconnect')key.remove();
+  if(operation==='move')pointer(key,'pointermove',{clientX:60});
+  for(const [id,t]of pending)if(tasks.has(id)){tasks.delete(id);t.fn();}
+  pointer(e.d,'pointerup');assert.equal(c.dataset.state,'-1',operation);
+  if(operation==='collapse')c.querySelector('.simulation-toggle').click();
+  if(operation==='hide')e.d.getElementById('clear-search').click();
+ }
+ c.querySelector('[data-sim-reset]').click();let key=c.querySelector('[data-long-press-choice]');pointer(key,'pointerdown');pointer(key,'pointerup');assert.equal(c.dataset.state,'2');
+ c.querySelector('[data-sim-reset]').click();key=c.querySelector('[data-long-press-choice]');pointer(key,'pointerdown');for(const [id,t]of tasks)if(t.ms===700){tasks.delete(id);t.fn();}pointer(key,'pointerup');assert.equal(c.dataset.state,'1');
+ c.querySelector('[data-sim-reset]').click();c.querySelector('.lab-assist').open=true;c.querySelector('.lab-assist [data-sim-choice="2"]').click();assert.equal(c.dataset.state,'2');c.querySelector('.lab-assist [data-sim-choice="1"]').click();assert.equal(c.dataset.state,'1');e.dom.window.close();
+});
+test('v71 clipping audit checks inner clipping before scroll and checks outer scroll-container clipping',()=>{
+ const {clippedByAncestor}=require('./layout-geometry.js');
+ const box=(left,right,overflowX='visible',parentElement=null)=>({parentElement,style:{overflowX},getBoundingClientRect:()=>({left,right,width:right-left,height:20})});
+ const viewport=box(0,390,'hidden');
+ assert.equal(clippedByAncestor(box(0,600,'visible',box(0,350,'auto',viewport)),e=>e.style),false,'local scrolling allowed');
+ assert.equal(clippedByAncestor(box(0,600,'visible',box(0,300,'hidden',box(0,350,'auto',viewport))),e=>e.style),true,'inner clipping not hidden by outer scroll');
+ assert.equal(clippedByAncestor(box(0,600,'visible',box(0,450,'auto',viewport)),e=>e.style),true,'scroll viewport itself clipped');
+ assert.equal(clippedByAncestor(box(-20,300,'visible',viewport),e=>e.style),true,'left-edge clipping');
+ assert.equal(clippedByAncestor(box(0,390,'visible',viewport),e=>e.style),false);
+ assert.equal(clippedByAncestor(box(0,0,'visible',viewport),e=>e.style),false,'invisible element');
+ const checker=fs.readFileSync(path.join(root,'tests/layout.html'),'utf8');assert.match(checker,/NOTE_LAYOUT_GEOMETRY.clippedByAncestor/);assert.doesNotMatch(checker,/closest\('\.lab-table-scroll/);
+});
+test('v71 static registration metadata is deterministic without DOM execution and current canonical URLs agree',()=>{
+ const {extract}=require('../scripts/demo-metadata.cjs'),a=extract(root),b=extract(root);assert.deepEqual(a,b);assert.equal(Object.keys(a).length,241);assert.equal(new Set(Object.values(a).map(x=>x.owner)).size,240);
+ assert.equal(new Set(Object.values(a).filter(x=>x.kind==='lab').map(x=>x.owner)).size,178);
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.match(html,/rel="canonical" href="https:\/\/mobius-siline.github.io\/computer-interaction-notes\/"/);assert.doesNotMatch(html,/mobius608955255-dev.github.io/);
+});
+
+test('v71 task manager service state is distinct from startup type without moving old anchors',()=>{
+ const e=env(2),n=e.w.NOTES.notes.find(n=>n.id==='y2026q34');assert.equal(n.points.length,5);assert.match(n.points[4],/停止当前运行不等于.*启动类型/);assert.match(n.points[4],/服务.*管理.*权限/);
+ const p=e.d.getElementById('y2026q34--point-4');assert.ok(p);assert.match(p.textContent,/不能说任务管理器可以禁用所有服务/);
+ assert.deepEqual(Array.from(e.w.NOTE_PRESENTATION.pointOrder(n)),[0,1,2,3,4]);const q=e.d.getElementById('search-input');q.value='启动行为';q.dispatchEvent(new e.w.Event('input',{bubbles:true}));assert.ok(!e.d.getElementById(n.id).classList.contains('hidden'));e.dom.window.close();
 });

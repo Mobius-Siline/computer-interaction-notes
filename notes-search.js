@@ -30,6 +30,16 @@
     const start = Math.max(0, first-35);
     return (start ? '…' : '') + text.slice(start, start+length) + (text.length > start+length ? '…' : '');
   };
+  // A match may come from a visible title/group rather than the paragraph itself.
+  // Show that real static entrance explicitly instead of inventing a body match.
+  const fieldSnippet = (field, query, length = 150) => {
+    const terms = normalize(query).split(' ').filter(Boolean);
+    const body = String(field.text || '');
+    const missingFromBody = terms.filter(term => !normalize(body).includes(term));
+    const labels = [...new Set([field.title || '', ...(field.aliases || [])])]
+      .filter(label => label && missingFromBody.some(term => normalize(label).includes(term)));
+    return (labels.length ? '命中入口：' + labels.join(' / ') + '。' : '') + snippet(body, query, length);
+  };
   // Presentation-only: escape first, then wrap already-matched original slices.
   const highlight = (text, query) => {
     const raw = String(text ?? '');
@@ -44,5 +54,5 @@
     }
     return out + escape(raw.slice(last));
   };
-  window.NOTE_SEARCH = {normalize, escape, search, snippet, highlight};
+  window.NOTE_SEARCH = {normalize, escape, search, snippet, fieldSnippet, highlight};
 })();

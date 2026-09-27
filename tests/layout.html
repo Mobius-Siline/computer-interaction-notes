@@ -2,6 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>笔记布局检查</title>
 <style>body{margin:0;background:#dde4df;font:14px/1.5 system-ui,sans-serif;color:#274333}header{padding:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}select,button{font:inherit;padding:7px}iframe{display:block;border:1px solid #899f91;margin:0 auto;background:white;height:82vh;max-width:100%}output{padding:10px;display:block}label{display:flex;gap:7px;align-items:center}</style></head>
 <body><header><label>窗口宽度<select id="width"><option>390</option><option>360</option><option>760</option><option>1200</option></select></label><label>章节<select id="chapter"></select></label><label>演示<select id="note"></select></label><button id="open">打开并定位演示</button><button id="measure">测量溢出</button><button id="audit">检查本章全部卡片</button><button id="audit-all">检查11章两种手机宽度</button></header><iframe id="preview" title="窄屏笔记预览" width="390"></iframe><output id="result" aria-live="polite"></output>
+<script src="./layout-geometry.js"></script>
 <script>
 const frame=document.getElementById('preview'),width=document.getElementById('width'),chapter=document.getElementById('chapter'),note=document.getElementById('note');
 chapter.innerHTML='<option value="0">首页</option>'+Array.from({length:11},(_,i)=>`<option value="${i+1}">第${i+1}章</option>`).join('');
@@ -24,12 +25,9 @@ async function auditChapter(){
  for(const c of cards){
   const toggle=c.querySelector('.simulation-toggle'),wasOpen=toggle.getAttribute('aria-expanded')==='true';if(!wasOpen)toggle.click();
   // getBoundingClientRect below flushes layout; a background-frame RAF can be throttled.
-  const clipped=[...c.querySelectorAll('.simulation-mount button,.simulation-mount label,.simulation-mount p,.simulation-mount output,.simulation-mount select')].filter(el=>{
-   const rect=el.getBoundingClientRect();if(!rect.width||!rect.height)return false;
-   if(el.closest('.lab-table-scroll,.lab-freeze-scroll,.lab-print-scroll,.lab-format-viewport,[hidden]'))return false;
-   let scrollParent=el.parentElement;while(scrollParent&&scrollParent!==c){if(['auto','scroll'].includes(w.getComputedStyle(scrollParent).overflowX))return false;scrollParent=scrollParent.parentElement;}
-   if(rect.width>c.clientWidth+2)return true;
-   let parent=el.parentElement;while(parent&&parent!==c){const style=w.getComputedStyle(parent),box=parent.getBoundingClientRect();if(['hidden','clip'].includes(style.overflowX)&&(rect.right>box.right+3||rect.left<box.left-3))return true;parent=parent.parentElement;}return false;
+  const clipped=[...c.querySelectorAll('h3,h4,h5,h6,p,li,button,label,output,select,input,textarea,pre,th,td')].filter(el=>{
+   if(el.closest('[hidden]'))return false;
+   return NOTE_LAYOUT_GEOMETRY.clippedByAncestor(el,node=>w.getComputedStyle(node));
   }).map(el=>(el.textContent||el.getAttribute('aria-label')||'').trim().slice(0,65));
   if(clipped.length)issues.push({id:c.id,clipped});if(!wasOpen)toggle.click();
  }

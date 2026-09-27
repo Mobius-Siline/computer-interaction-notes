@@ -1,20 +1,11 @@
 /* Chapter filtering, temporary disclosure and URL restoration share the site search rules. */
 (() => {
   'use strict';
-  function init({notes,simulation,homeUrl,onLayout}) {
+  function init({notes,simulation,homeUrl,onLayout,onHide}) {
     const input=document.getElementById('search-input'),articles=[...document.querySelectorAll('.note-item')];
     const sections=[...document.querySelectorAll('.section-block')],autoOpened=new Set();
-    const entries=notes.map(note=>{
-      const article=document.getElementById(note.id),demo=simulation.demos[note.id];
-      return {id:note.id,title:note.title,chapter:note.chapter,
-        aliases:[...(note.searchAliases||[]),...(note.pointGroups||[]).map(g=>g.title),demo?.title||'',demo?.task||''],
-        fields:[...article.querySelectorAll('.conclusion,[data-note-point],.boundary,.note-demo-limits,.note-comparison,.note-worked,.note-provenance')].map(el=>({
-          anchor:el.id||el.parentElement.id,
-          aliases:el.hasAttribute('data-note-point')?[window.NOTE_PRESENTATION.pointMeta(note,el.dataset.notePoint).navigationLabel||'']:[],
-          title:el.dataset.pointTitle||el.closest('.note-point-group')?.querySelector('h4')?.textContent|| (el.matches('.note-demo-limits')?'本演示的范围与限制':el.matches('details')?'来源与核验记录':el.matches('.boundary')?'易错边界':el.matches('.conclusion')?'核心结论':el.querySelector('h4')?.textContent||'相关内容'),
-          text:el.hasAttribute('data-note-point')?[...el.querySelectorAll(`[data-source-field="point-${el.dataset.notePoint}"]`)].map(part=>part.textContent).join(''):el.textContent
-        }))};
-    });
+    // Exactly the same immutable entries as global search; no live model output.
+    const entries=window.NOTE_SEARCH_ENTRIES;
     function restoreDisclosures(){
       for(const detail of autoOpened)detail.open=false;
       autoOpened.clear();
@@ -26,6 +17,7 @@
       const query=input.value.trim(),results=window.NOTE_SEARCH.search(entries,query),matches=new Map(results.map(r=>[r.id,r]));
       const terms=window.NOTE_SEARCH.normalize(query).split(' ').filter(Boolean);
       for(const article of articles){
+        if(query&&!matches.has(article.id))onHide?.(article);
         article.classList.toggle('hidden',!!query&&!matches.has(article.id));
         const heading=article.querySelector('h3');
         if(heading) heading.classList.toggle('note-search-match', !!(query && matches.has(article.id) && terms.some(term=>window.NOTE_SEARCH.normalize(heading.textContent).includes(term))));
@@ -42,7 +34,7 @@
           const label=document.createElement('span');label.textContent='跳到命中段落';nav.append(label);
           const labels=targets.map(target=>{
             const field=matches.get(article.id).matches.find(f=>f.anchor===target.id);
-            return {target,title:field.title,text:field.text,summary:window.NOTE_SEARCH.snippet(field.text,query,110)};
+            return {target,title:field.title,text:field.text,summary:window.NOTE_SEARCH.fieldSnippet(field,query,110)};
           });
           // If clipped extracts collide, expose their complete actual text.
           // Numbers alone must never be the only distinction between two hits.

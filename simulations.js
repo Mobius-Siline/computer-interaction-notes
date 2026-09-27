@@ -112,7 +112,7 @@
       return `<div class="power-comparison">
         <div class="power-scene"><div class="desktop-wallpaper"><div class="start-menu"><header>Drd</header><div class="start-apps"><i>文档</i><i>设置</i><i>图片</i></div><footer><b>⏻</b><button type="button" data-sim-choice="0">关机</button></footer></div><div class="shutdown-overlay" data-shutdown-state><b>Windows</b><span>正在关闭应用并写回数据…</span></div></div></div>
         <aside class="device-chassis"><span>实体电源键</span><button type="button" class="physical-power" data-long-press-choice="1" data-short-press-choice="2" aria-label="短按或长按实体电源键"><i></i><b>⏻</b></button><strong data-press-label>轻触＝短按 · 持续按住＝强制断电</strong></aside>
-      </div>${feedback('规范关机会先通知程序、写回缓存并卸载文件系统；强制断电跳过这些步骤。')}`;
+      </div><details class="lab-assist"><summary>键盘辅助：比较短按与持续长按</summary><p>以下按钮直接模拟相应按键时长的结果；真实电源键仍需区分短按和持续长按。</p>${choice(demo,2)}${choice(demo,1)}</details>${feedback('规范关机会先通知程序、写回缓存并卸载文件系统；强制断电跳过这些步骤。')}`;
     },
 
     "y2026q9": function (demo) {

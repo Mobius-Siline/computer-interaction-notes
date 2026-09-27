@@ -1,10 +1,12 @@
 # 山东专升本计算机系统笔记
 
-[打开网站](https://mobius-siline.github.io/computer-interaction-notes/?v=69)
+[打开网站](https://mobius-siline.github.io/computer-interaction-notes/)
 
 保留教材11章结构与原题源关联，逐步建设能用于日常学习和做题的详细笔记。现有数据含460个题源标识、220条归并笔记与21条知识补充，共241条；这些是代码记录数量，不表示全站已经逐题核查或完整覆盖考纲。Windows和Office操作按Windows 10 / Office 2016解释；答案是否官方需有发布依据，出现冲突时记录版本、前提和核验来源。
 
-v69已由Work2正式发布并完成生产环境终验；第1—10章进入新增资料驱动的增量维护。Work1已完成v70第11章计算思维专项与全章终审并本地冻结，尚未发布；完整回归356/356、最终定向21/21、生成一致性与历史保护通过。当前维护入口见[CONTENT-COMPUTATIONAL-THINKING.md](CONTENT-COMPUTATIONAL-THINKING.md)。正式Pages桌面及390px真实浏览器终验交Work2；本轮不开展全11章总终审，各章旧记录保留历史语境。
+当前维护入口：[AUDIT-v71.md](AUDIT-v71.md)，集中记录全站综合审计范围、必要修复及后续维护约定。第1—11章均已有专项记录；旧CONTENT文件中的版本和“尚未发布”保留其历史语境，不代表当前线上状态。
+
+已确认的正式发布基线（2026-09-27记录）：v70，commit `60491f856bd72e564d6bcb576e3b2e344fb913ac`，tree `432a4e4da5b50dc0961cb86e17138f14a889f854`；Verify / Pages及Work2生产浏览器验收已完成。下一候选版本的本地冻结身份、实际测试结果与后续发布结果分别写入交接记录，不把“尚未发布”放在长期站点入口中。
 
 ## 开发
 
@@ -12,10 +14,10 @@ v69已由Work2正式发布并完成生产环境终验；第1—10章进入新增
 
 ```sh
 npm ci
-npm run check
+NODE_OPTIONS=--max-old-space-size=6144 npm run check
 ```
 
-`check`先生成静态页面，再运行行为回归。只修改内容时可用`npm run build`。开发预览用`npm run dev`，打开`tests/layout.html`可检查手机宽度；Vite只用于开发，发布仍使用静态生成物。生成物随源码提交，CI会检查它们是否一致；CI只检查，不改写或自动提交代码。
+`check`先生成静态页面，再运行行为回归。全量jsdom回归在当前环境使用6GiB Node堆；需要约8GiB可用运行环境，OOM或未执行不能记为通过。只修改内容时可用`npm run build`。开发预览用`npm run dev`，打开`tests/layout.html`可检查手机宽度；Vite只用于开发，发布仍使用静态生成物。生成物随源码提交，CI会检查它们是否一致；CI只检查，不改写或自动提交代码。
 
 ## 文件职责
 
@@ -34,7 +36,8 @@ npm run check
 | `notes-directory.js` | 单一目录入口、章节切换、分组知识点导航与焦点管理 |
 | `notes-chapter-search.js` | 本章搜索、命中段落提示、临时展开来源和查询恢复 |
 | `notes-search.js`、`notes-home.js` | 共享搜索规则与缓存、首页结果分页和对照恢复；全站索引在首次查询时载入 |
-| `scripts/discovery.cjs` | 从正文生成段落索引、双向导航，验证关联与分组完整性 |
+| `scripts/demo-metadata.cjs` | 构建时读取实际注册的静态标题和任务，不调用模型渲染或动作 |
+| `scripts/discovery.cjs` | 从正文生成全站和章内共用的段落索引、双向导航，验证关联与分组完整性 |
 | `notes-choices.js` | 页面内单选控件、键盘与焦点行为 |
 | `note-labs-runtime.js` | 演示注册、输入分发、重绘、局部画面更新、指针与计时器生命周期、可操作功能区，以及纯文本转义 |
 | `src/labs/chapter*/` | 按章维护模型与计算逻辑；原IIFE闭包和两条必要包装链保留 |
@@ -58,7 +61,7 @@ npm run check
 
 断线恢复检查与局部修复见[AUDIT-v48.md](AUDIT-v48.md)。内容审校、13条考纲补充与卡片改造见[AUDIT-v47.md](AUDIT-v47.md)。目录、阅读简化与连续操作修复见[AUDIT-v46.md](AUDIT-v46.md)。整体内容和模型结构改版见[AUDIT-v45.md](AUDIT-v45.md)。前轮手机交互复核见[AUDIT-v44.md](AUDIT-v44.md)，更早记录见[docs/HISTORY.md](docs/HISTORY.md)；旧文件名及测试数量仅反映当时状态。
 
-演示仍是围绕考点的局部教学模型；来源齐全不等于覆盖完整考纲，也不等同于完整Office软件。
+演示仍是围绕考点的局部教学模型；来源登记齐全不等于覆盖完整考纲，也不等同于完整Office软件。
 
 ## 内容长期质量规则
 

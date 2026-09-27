@@ -159,7 +159,7 @@ register(['y2020q57'],'精确查价，再比较数量折扣','拖动填充柄；
       const pool=s.locked?source:source.slice(i);
       const row=s.exact?pool.find(r=>r[0]===name):pool.filter(r=>r[0]<=name).at(-1);
       const result=s.col>3?'#REF!':!row?'#N/A':s.task==='discount'?money(row[2]*(s.quantities[i]>=20?.95:1)):row[s.col-1];
-      return [i+3,name,...(s.task==='discount'?[field('quantity'+i,'第'+(i+3)+'行数量',s.quantities[i],'number','min="1" step="1"'),s.quantities[i]>=20?'0.95':'1']:[]),`<div class="lab-lookup-cell" data-fill-index="${i}">${i<=s.filled?esc(result):'—'}${i===0?'<button data-lab-drag="fill" class="lab-fill-handle" aria-label="向下拖动填充柄"></button>':''}</div>`];
+      return [i+3,esc(name),...(s.task==='discount'?[field('quantity'+i,'第'+(i+3)+'行数量',s.quantities[i],'number','min="1" step="1"'),s.quantities[i]>=20?'0.95':'1']:[]),`<div class="lab-lookup-cell" data-fill-index="${i}">${i<=s.filled?esc(result):'—'}${i===0?'<button data-lab-drag="fill" class="lab-fill-handle" aria-label="向下拖动填充柄"></button>':''}</div>`];
     });
     return `<div class="lab-controls">${select('task','任务',s.task,[['lookup','查找单价'],['discount','数量达到20件享95折']])}</div>`+
       office('Excel','公式',`<code class="lab-formula">${esc(formula(s.selected))}</code>`,table(['行','D 产品名称',...(s.task==='discount'?['F 数量','IF折扣系数']:[]),'G '+(s.task==='discount'?'折后单价':'查找结果')],rows))+

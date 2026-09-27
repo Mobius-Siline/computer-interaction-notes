@@ -136,7 +136,7 @@
     const bodyId = `simulation-${note.id}`;
     const types = [...new Set(note.sources.map(source => source.type))];
     const operation = types.some(type => /操作|分析|综合/.test(type));
-    return `<section class="reality-demo chapter-sim-${note.chapter} ${operation ? 'is-operation' : 'is-concept'}" data-sim-id="${note.id}" data-state="-1" data-progress="0" data-tone="">
+    return `<section id="${note.id}--demo" class="reality-demo chapter-sim-${note.chapter} ${operation ? 'is-operation' : 'is-concept'}" data-sim-id="${note.id}" data-state="-1" data-progress="0" data-tone="">
       <button class="simulation-toggle" type="button" aria-expanded="false" aria-controls="${bodyId}">
         ${refined ? '' : `<span class="simulation-icon" aria-hidden="true"><i></i><b>${String(note.chapter).padStart(2,'0')}</b></span>`}
         <span class="simulation-heading"><small>${operation ? '拟真操作演示' : '拟真概念演示'} · ${appNames[note.chapter]}</small><b>${simulation.escapeHTML(demo.title)}</b></span>
@@ -160,7 +160,7 @@
     if (toggle) {
       const body = $('.simulation-body', card);
       const opening = body.hidden;
-      if (!opening) window.NOTE_LABS?.cancel(card);
+      if (!opening) { cancelLegacyGesture(card); window.NOTE_LABS?.cancel(card); }
       body.hidden = !opening;
       toggle.setAttribute('aria-expanded', String(opening));
       $('.simulation-open i', toggle).textContent = opening ? '收起' : '打开';
@@ -348,8 +348,23 @@
 
   document.addEventListener('pointerup', finishPointerGesture);
   document.addEventListener('pointercancel', cancelPointerGesture);
+  document.addEventListener('lostpointercapture', cancelPointerGesture);
+  addEventListener('blur', () => cancelLegacyGesture());
+
+  function cancelLegacyGesture(card) {
+    if (activeGesture && (!card || activeGesture.card === card || card.contains(activeGesture.card))) {
+      cancelPointerGesture({pointerId:activeGesture.pointerId});
+    }
+  }
+
+  function gestureVisible(gesture) {
+    return gesture.card.isConnected && (gesture.target || gesture.source).isConnected
+      && !gesture.card.closest('[hidden],.hidden')
+      && !$('.simulation-body', gesture.card)?.hidden;
+  }
 
   function startPressGesture(event, target) {
+    if (event.button !== 0 || event.isPrimary === false) return;
     if (activeGesture) cancelPointerGesture({pointerId:activeGesture.pointerId});
     const card = target.closest('[data-sim-id]');
     const gesture = {type:'press', pointerId:event.pointerId, target, card, startX:event.clientX, startY:event.clientY, distance:0, fired:false};
@@ -361,6 +376,7 @@
     if (label) label.textContent = '继续按住…达到圆环终点才会强制断电';
     gesture.timer = setTimeout(() => {
       if (activeGesture !== gesture) return;
+      if (!gestureVisible(gesture)) { cancelLegacyGesture(gesture.card); return; }
       gesture.fired = true;
       target.classList.remove('pressing');
       target.classList.add('press-complete');
@@ -378,7 +394,9 @@
   }
 
   function startDragGesture(event, source, kind) {
+    if (event.isPrimary === false) return;
     if (event.button !== 0 && !(kind === 'file' && event.button === 2)) return;
+    cancelLegacyGesture();
     const card = source.closest('[data-sim-id]');
     const movable = kind === 'window' ? source.closest('[data-demo-window]') : source;
     const measured = kind.startsWith('picture-') ? source.closest('[data-picture],[data-ppt-picture]') : movable;
@@ -456,6 +474,7 @@
   function finishPointerGesture(event) {
     const gesture = activeGesture;
     if (!gesture || event.pointerId !== gesture.pointerId) return;
+    if (!gestureVisible(gesture)) { cancelLegacyGesture(gesture.card); return; }
     activeGesture = null;
     if (gesture.type === 'press') {
       clearTimeout(gesture.timer);
@@ -678,6 +697,7 @@
   }
 
   function resetSimulation(card, id, demo) {
+    cancelLegacyGesture(card);
     window.NOTE_LABS?.unmount(card);
     card.dataset.state = '-1'; card.dataset.progress = '0'; card.dataset.tone = ''; delete card.dataset.dragMode; card.classList.remove('simulation-complete','cjk-compact','query-ran','series-filled','fill-previewing');
     $('[data-sim-mount]', card).innerHTML = simulation.scenes[id](demo);
@@ -789,7 +809,7 @@
   addEventListener('scroll', updateProgress, {passive:true});
   addEventListener('resize', updateProgress);
   try { localStorage.removeItem('notes-reading-mode'); } catch {}
-  const chapterSearch=window.NOTE_CHAPTER_SEARCH.init({notes,simulation,homeUrl,onLayout:updateProgress});
+  const chapterSearch=window.NOTE_CHAPTER_SEARCH.init({notes,simulation,homeUrl,onLayout:updateProgress,onHide:cancelLegacyGesture});
   window.NOTE_DIRECTORY.init({chapter,chapters:data.chapters,notes,chapterUrl,revealNote});
   if(location.hash)revealNote(location.hash);
   updateProgress();
